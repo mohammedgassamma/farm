@@ -1,0 +1,472 @@
+{
+  "login": {
+    "appTitle": "L'Appli de Gestion des Fermes"
+  },
+  "common": {
+    "logout": "Se deconnecter",
+    "login": "Connexion",
+    "back": "Retour",
+    "contactUs": "Contact"
+  },
+  "homeScreen": {
+    "headerTitle": "L'Appli de Gestion des Fermes",
+    "agriculture": "Agriculture",
+    "livestock": "Elevage",
+    "dashboard": "Tableau de bord",
+    "education": "Éducation",
+    "store": "Magasin",
+    "connection": "Connection",
+    "orders": "Commandes",
+    "users": "Utilisateurs"
+  },
+  "agricultureScreen": {
+    "main": {
+      "fieldSummary": "Sommaire des champs",
+      "income": "Revenu",
+      "cost": "Coûts",
+      "profitAndLoss": "Bénéfice",
+      "addNewCrop": "Ajouter une nouvelle culture",
+      "noCropsFound": "Culture non retrouvee.",
+      "loadingCrops": "Chargement des cultures...",
+      "deleteCrop": {
+        "confirmTitle": "Supprimer la Culture",
+        "confirmMessage": "Êtes-vous sûr de vouloir supprimer cette culture ?",
+        "cancelButton": "Annuler",
+        "deleteButton": "Oui, Supprimer"
+      },
+      "cropCard": {
+        "viewDetails": "Voir les détails",
+        "editCrop": "Modifier le champs",
+        "fieldLabel": "Champs",
+        "cropPlanted": "Culture",
+        "expenses": "Coûts",
+        "revenues": "Revenus",
+        "profit": "Bénéfice"
+      }
+    },
+    "addOrEdit": {
+      "addTitle": "+ Ajouter une Nouvelle Culture",
+      "saveButton": "Enregistrer la Culture",
+      "editTitle": "Modifier la Culture",
+      "updateButton": "Mettre à Jour la Culture",
+      "fieldNumber": {
+        "label": "Numéro du champ",
+        "placeholder": "numéro dudit champs"
+      },
+      "area": {
+        "label": "Superficie, Ha",
+        "placeholder": "superficie du champs en hectare"
+      },
+      "cropPlanted": {
+        "label": "Culture semée",
+        "placeholder": "culture semée dans le champ"
+      },
+      "seedCostPerHa": {
+        "label": "Coût des Semences/Ha",
+        "placeholder": "coût semences à l'ha"
+      },
+      "fertilizerCostPerHa": {
+        "label": "Coût des Engrais/Ha",
+        "placeholder": "coût des engrais à l'ha"
+      },
+      "herbicideCostPerHa": {
+        "label": "Coût des Herbicides/Ha",
+        "placeholder": "coût des herbicides à l'ha"
+      },
+      "laborCostPerHa": {
+        "label": "Coût de la Main d'oeuvre/Ha",
+        "placeholder": "coût main d'oeuvre par ha"
+      },
+      "otherCostsPerHa": {
+        "label": "Autres Coût/Ha",
+        "placeholder": "coût divers par ha"
+      },
+      "yieldKgPerHa": {
+        "label": "Rendement Kg/Ha",
+        "placeholder": "rendement, kg par ha"
+      },
+      "pricePerKg": {
+        "label": "Prix du Kilogramme",
+        "placeholder": "prix marché du kg"
+      },
+      "expensesPerField": {
+        "label": "Dépenses/Champs",
+        "placeholder": "dépenses par champ"
+      },
+      "revenuesPerField": {
+        "label": "Revenus/Champs",
+        "placeholder": "revenus par champ"
+      },
+      "profits": {
+        "label": "Benefices/Champs",
+        "placeholder": "bénéfices par champ"
+      },
+      "notes": {
+        "label": "Notes",
+        "placeholder": "notes importantes"
+      }
+    }
+  },
+  "animalScreen": {
+    "main": {
+      "fieldSummary": "Sommaire de l'Élevage",
+      "totalProfit": "Profit Total",
+      "underperformingAnimals": "Animaux Non Performants:",
+      "addNewAnimal": "Ajouter un Nouvel Animal",
+      "noAnimalsFound": "Aucun animal trouvé.",
+      "loadingAnimals": "Chargement des animaux...",
+      "identification": "Identification",
+      "gender": "Genre",
+      "income": "Revenu Total",
+      "cost": "Coûts",
+      "notes": "Notes",
+      "profitAndLoss": "Bénéfice",
+      "editAnimalButton": "Modifier",
+      "deleteAnimal": {
+        "confirmTitle": "Supprimer l'Animal",
+        "confirmMessage": "Êtes-vous sûr de vouloir supprimer cet animal ?",
+        "cancelButton": "Annuler",
+        "deleteButton": "Oui, Supprimer",
+        "deleteSuccessful": "Animal supprimé avec succès.",
+        "deleteError": "Erreur lors de la suppression de l'animal. Veuillez réessayer."
+      }
+    },
+    "addOrEdit": {
+      "addTitle": "+ Ajouter un Nouvel Animal",
+      "editTitle": "Modifier l'Animal",
+      "loadingButton": "Enregistrement...",
+      "saveButton": "Enregistrer",
+      "updateButton": "Mettre à Jour",
+      "pictureUrl": {
+        "label": "Telecharger la photo",
+        "placeholder": "chosir une image"
+      },
+      "identification": {
+        "label": "Identifiant",
+        "placeholder": "nom ou numero de l'animal"
+      },
+      "dateOfBirth": {
+        "label": "Date de Naissance",
+        "placeholder": "Date de naissance de l'animal"
+      },
+      "gender": {
+        "label": "Genre",
+        "placeholder": "Genre de l'animal"
+      },
+      "sex": {
+        "label": "Sexe",
+        "placeholder": "Sexe de l'animal"
+      },
+      "male": {
+        "label": "Mâle",
+        "placeholder": "mâle"
+      },
+      "female": {
+        "label": "Femelle",
+        "placeholder": "femelle"
+      },
+      "father": {
+        "label": "Papa",
+        "placeholder": "père, geniteur"
+      },
+      "mother": {
+        "label": "Mama",
+        "placeholder": "mère, genitrice"
+      },
+      "animalCost": {
+        "label": "Prix de l'Animal",
+        "placeholder": "prix de l'animal"
+      },
+      "feedCost": {
+        "label": "Coût Aliment  Bétail",
+        "placeholder": "coût des aliments"
+      },
+      "vetCost": {
+        "label": "Coût Vétérinaire",
+        "placeholder": "coût des soins"
+      },
+      "otherCosts": {
+        "label": "Autres Dépenses",
+        "placeholder": "coût divers"
+      },
+      "amountOfMeat": {
+        "label": "Poids Carcasse, Kg",
+        "placeholder": "poids carcasse, kg"
+      },
+      "salePrice": {
+        "label": "Prix Total de Vente",
+        "placeholder": "vente totale globale"
+      },
+      "meatPricePerPound": {
+        "label": "Prix du Kg de Viande",
+        "placeholder": "prix du kg au marché"
+      },
+      "inseminationCost": {
+        "label": "Coût D'insemination",
+        "placeholder": "Coût du service"
+      },
+      "inseminationDate": {
+        "label": "Date D'insemination",
+        "placeholder": "date d'insemination de l'animal"
+      },
+      "breedingDate": {
+        "label": "Date de Reproduction",
+        "placeholder": "date de reproduction de l'animal"
+      },
+      "calvingDate": {
+        "label": "Date de Velage",
+        "placeholder": "date de dernier naissance de l'animal"
+      },
+      "totalMilkProduced": {
+        "label": "Lait Total produit, Litres",
+        "placeholder": "lait produit jusque la"
+      },
+      "milkPricePerGallon": {
+        "label": "Prix du Litre de Lait",
+        "placeholder": "prix du litre au marché"
+      },
+      "totalCost": {
+        "label": "Depense Totale par animal",
+        "placeholder": "coût total pour l'animal"
+      },
+      "totalIncome": {
+        "label": "Revenu Total par animal",
+        "placeholder": "revenu total de l'animal"
+      },
+      "totalProfit": {
+        "label": "Profit Total par animal",
+        "placeholder": "profit total de l'animal"
+      },
+      "notes": {
+        "label": "Notes",
+        "placeholder": "notes importantes"
+      }
+    }
+  },
+  "dashboardScreen": {
+    "main": {
+      "dashboard": "Tableau de bord",
+      "statCard": {
+        "profit": "Bénéfice Total de la Ferme",
+        "totalRevenue": "Revenu Total de la Ferme",
+        "totalExpenses": "Dépenses Totales de la Ferme",
+        "projectedFinancials": "Prévisions Financières"
+      },
+      "cropDistribution": {
+        "title": "Sommaire des cultures",
+        "totalRevenue": "Revenu Total des Cultures",
+        "totalExpenses": "Depenses Totales des Cultures",
+        "totalProfit": "Bénéfice Total des Cultures",
+        "totalLand": "Superficie Totale sous production, Hectares"
+      },
+      "livestockDistribution": {
+        "title": "Sommaire Elevage",
+        "totalRevenue": "Revenu Total Elevage",
+        "totalExpenses": "Dépenses Totales Élevage",
+        "totalProfit": "Bénéfice Total Elevage",
+        "totalNumberOfLivestock": "Nombre Total d'animaux",
+        "totalNumberOfMales": "Total Males",
+        "totalNumberOfFemales": "Total Femelles",
+        "totalMilk": "Total Lait, L",
+        "totalMeat": "Total Viande, CFA"
+      },
+      "totalProfit": {
+        "title": "Bénéfice Total au Fil du Temps",
+        "totalProfitLast6Months": "Bénéfice des 6 derniers mois",
+        "totalProfitOverTime": "Bénéfice Total  au fil du temps",
+        "months": {
+          "january": "Janvier",
+          "february": "Février",
+          "march": "Mars",
+          "april": "Avril",
+          "may": "Mai",
+          "june": "Juin",
+          "july": "Juillet",
+          "august": "Août",
+          "september": "Septembre",
+          "october": "Octobre",
+          "november": "Novembre",
+          "december": "Décembre"
+        }
+      }
+    }
+  },
+  "educationScreen": {
+    "main": {
+      "educationTitle": "Videos Pédagogiques",
+      "noResourcesFound": "Aucune ressource éducative trouvée.",
+      "loadingResources": "Chargement des ressources éducatives..."
+    },
+    "educationCard": {
+      "watchNow": "Visionner"
+    }
+  },
+  "storeScreen": {
+    "main": {
+      "storeTitle": "Magasin de la Ferme",
+      "noProductsFound": "Aucun produit trouvé.",
+      "loadingProducts": "Chargement des produits...",
+      "viewCart": "Voir Panier",
+      "card": {
+        "addToCart": "Ajouter au Panier",
+        "price": "Prix",
+        "removeFromCart": "Supprimer du Panie"
+      }
+    }
+  },
+  "alertsScreen": {
+    "main": {
+      "title": "Alertes et Notifications",
+      "noResourcesFound": "Aucune ressource éducative trouvée.",
+      "loadingResources": "Chargement des ressources éducatives...",
+      "filterAlerts": "Filtrer les alertes",
+      "allAlerts": "Toutes les alertes",
+      "systemAlerts": "Alertes système",
+      "localAlerts": "Alertes locales",
+      "economicalAlerts": "Alertes économiques",
+      "filter": "Filtrer",
+      "noAlerts": "Aucune alerte disponible dans cetteclear section."
+    }
+  },
+  "cartScreen": {
+    "main": {
+      "title": "Votre Panier",
+      "emptyCart": "Votre panier est vide.",
+      "proceedToCheckout": "Procéder au Paiement",
+      "addMoreItems": "Ajouter au Panier",
+      "total": "Total"
+    },
+    "order": {
+      "message": "Commande placée avec succès"
+    },
+    "cartCard": {
+      "unitPrice": "Prix Unitaire"
+    },
+    "checkout": {
+      "title": "Choisir un Mode de Paiement",
+      "subtitle": "Paiement",
+      "paymentMethods": {
+        "orangeMoney": "Orange Money",
+        "bankDetails": "Bank (BNDA)"
+      },
+      "orangeMoney": {
+        "title": "Paiement Orange Money",
+        "subtitle": "Utilisez Orange Money pour compléter votre achat",
+        "merchantName": "Marchant",
+        "description": "Payer a travers le numéro Orange Money ci dessus",
+        "merchantNumber": "Numero Orange Money du Commerçant",
+        "instructions": "Pour payer via Orange Money, suivez ces étapes :",
+        "step1": "Composez *144# sur votre téléphone mobile.",
+        "step2": "Sélectionnez 'Effectuer un paiement' dans le menu.",
+        "step3": "Entrez le numéro du commerçant : 650 11 22 33.",
+        "step4": "Entrez le montant à payer.",
+        "step5": "Confirmez le paiement avec votre code PIN.",
+        "note": "Vous recevrez un SMS de confirmation une fois le paiement réussi."
+      },
+      "bankDetails": {
+        "title": "Détails Bancaires pour le Paiement",
+        "subtitle": "Utilisez les informations bancaires ci-dessous pour compléter votre achat",
+        "accountName": "Nom du Compte",
+        "accountNumber": "Numéro de Compte",
+        "bankName": "Nom de la Banque",
+        "branchCode": "Code de la Succursale",
+        "instructions": "Pour payer via virement bancaire, suivez ces étapes :",
+        "step1": "Connectez-vous à votre application bancaire ou visitez votre agence locale.",
+        "step2": "Sélectionnez l'option de virement bancaire.",
+        "step3": "Entrez les détails bancaires fournis ci-dessus.",
+        "step4": "Entrez le montant à transférer.",
+        "step5": "Confirmez le virement.",
+        "note": "Veuillez conserver le reçu du virement pour vos dossiers."
+      },
+      "orderSummary": {
+        "title": "Résumé de la commande",
+        "totalAmount": "Montant Total",
+        "shippingNotice": "A Noter: Sans le coût de livraison",
+        "checkoutCode": "Code de la Commande",
+        "instruction__one": "Payer à travers Orange Money",
+        "instruction__two": "Confirmer l'achat ",
+        "instruction__three": "Appeler muni du code d'achat au +223 90 59 20 27",
+        "confirmCheckoutButton": "Confirmer la commande",
+        "cancelCheckoutButton": "Annuler la commande"
+      }
+    }
+  },
+  "settings": {
+    "menu": {
+      "myAccount": "Mon Compte",
+      "termsOfService": "Conditions d'Utilisation",
+      "useAndPrivacy": "Utilisation et Confidentialité",
+      "privacy": "Politique de Confidentialité",
+      "share": {
+        "title": "Partager",
+        "twitter": "Partager sur Twitter",
+        "copy": "Copier le Lien",
+        "copied": "Lien Copié !"
+      }
+    }
+  },
+  "loginScreen": {
+    "email": "Email",
+    "password": "Mot de passe",
+    "loginButton": "Se connecter",
+    "loadingButton": "Connexion...",
+    "registerButton": "S'inscrire",
+    "dontHaveAccount": "Pas de Compte? ",
+    "registerDontHaveAccount": "Créer un nouveau",
+    "forgotPassword": "Mot de passe oublié ?",
+    "continueWith": "ou Continuer avec...",
+    "signInWithGoogle": "Se connecter avec Google",
+    "signInWithPhone": "Se Connecter avec un numéro de téléphone",
+    "alreadyHaveAccount": "Vous avez déjà un compte? "
+  },
+  "installPrompt": {
+    "full__title": "Pour installer cette application sur votre iPhone, recherchez et cliquez sur cette icône",
+    "full__description": "(située près de la barre d'adresse de votre navigateur) dans votre navigateur, puis cliquez sur 'Ajouter à l'écran d'accueil'",
+    "mini__title": "Installer l'application"
+  },
+  "subscriptionScreen": {
+    "main": {
+      "subscriptionTitle": "Code d'abonnement"
+    },
+    "card": {
+      "title": "Code d'abonnement",
+      "description": "Pour vous abonner, effectuez un paiement et recevez un code d'abonnement. Ensuite, saisissez le code d'abonnement ci-dessous pour avoir un accès complet à l'application.",
+      "subscriptionCode": {
+        "label": "Code d'abonnement",
+        "placeholder": "Saisir le Code d'Abonnement ici"
+      },
+      "activateButton": "Verifier et Activer le Code d'Abonnement",
+      "needHelp": "Besoin d'Aide ? Contactez nous .",
+      "loadingButton": "Activation en cours..."
+    }
+  },
+  "subscriptionConfigScreen": {
+    "main": {
+      "subscriptionConfigTitle": "Configuration de l'abonnement"
+    },
+    "form": {
+      "trialPeriod": {
+        "label": "Période d'essai (jours)",
+        "placeholder": "Entrez la période d'essai en jours"
+      },
+      "subscriptionDuration": {
+        "label": "Durée de l'abonnement (jours)",
+        "placeholder": "Entrez la durée de l'abonnement en jours"
+      },
+      "price": {
+        "label": "Prix de l'abonnement",
+        "placeholder": "Entrez le prix de l'abonnement"
+      },
+      "saveButton": "Enregistrer la configuration",
+      "loadingButton": "Enregistrement en cours..."
+    },
+    "messages": {
+      "saveSuccess": "Configuration de l'abonnement enregistrée avec succès.",
+      "saveError": "Erreur lors de l'enregistrement de la configuration de l'abonnement. Veuillez réessayer."
+    },
+    "noticeCard": {
+      "message": "Votre abonnement a expiré. Payez {amount} pour réactiver votre compte.",
+      "payNowButton": "Cliquez ici"
+    }
+  }
+}

@@ -1,0 +1,477 @@
+{
+  "login": {
+    "appTitle": "The Farm Management App"
+  },
+  "common": {
+    "logout": "Logout",
+    "login": "Login",
+    "back": "Back",
+    "contactUs": "Contact us"
+  },
+  "homeScreen": {
+    "headerTitle": "The Farm Management App",
+    "agriculture": "Agriculture",
+    "livestock": "Livestock",
+    "dashboard": "Dashboard",
+    "education": "Education",
+    "store": "Store",
+    "connection": "Connection",
+    "orders": "Orders",
+    "users": "Users"
+  },
+  "agricultureScreen": {
+    "main": {
+      "fieldSummary": "Field Summary",
+      "income": "Income",
+      "cost": "Cost",
+      "profitAndLoss": "Profit",
+      "addNewCrop": "Add New Crop",
+      "noCropsFound": "No crops found.",
+      "loadingCrops": "Loading crops...",
+      "deleteCrop": {
+        "confirmTitle": "Delete Crop",
+        "confirmMessage": "Are you sure you want to delete this crop?",
+        "cancelButton": "Cancel",
+        "deleteButton": "Yes, Delete"
+      },
+      "cropCard": {
+        "viewDetails": "View Details",
+        "editCrop": "Edit Field",
+        "fieldLabel": "Field",
+        "cropPlanted": "Crop Planted",
+        "expenses": "Expenses",
+        "revenues": "Revenues",
+        "profit": "Profit"
+      }
+    },
+    "addOrEdit": {
+      "addTitle": "+ Add a New Crop",
+      "editTitle": "Edit Crop",
+      "loadingButton": "Saving...",
+      "saveButton": "Save",
+      "updateButton": "Update",
+      "fieldNumber": {
+        "label": "Field Number",
+        "placeholder": "Number or name of given field"
+      },
+      "area": {
+        "label": "Area, Ha"
+      },
+      "cropPlanted": {
+        "label": "Crop Planted",
+        "placeholder": "crop planted in the field"
+      },
+      "seedCostPerHa": {
+        "label": "Seed Cost/Ha",
+        "placeholder": "costs of the seeds per ha"
+      },
+      "fertilizerCostPerHa": {
+        "label": "Fertilizer Cost/Ha",
+        "placeholder": "costs of the fertilizer per ha"
+      },
+      "herbicideCostPerHa": {
+        "label": "Herbicide Cost/Ha",
+        "placeholder": "costs of the herbicide per ha"
+      },
+      "laborCostPerHa": {
+        "label": "Labor Cost/Ha",
+        "placeholder": "costs of labor per ha"
+      },
+      "otherCostsPerHa": {
+        "label": "Other Costs/Ha",
+        "placeholder": "miscellaneous costs"
+      },
+      "yieldKgPerHa": {
+        "label": "Yield Kg/Ha",
+        "placeholder": "yield of the planted crop per ha"
+      },
+      "pricePerKg": {
+        "label": "Price/Kg",
+        "placeholder": "market price per kg"
+      },
+      "expensesPerField": {
+        "label": "Expense/Field",
+        "placeholder": "total expenses for the given field"
+      },
+      "revenuesPerField": {
+        "label": "Revenue/Field",
+        "placeholder": "total revenues for the given field"
+      },
+      "profits": {
+        "label": "Profit/Field",
+        "placeholder": "profit per field, crop"
+      },
+      "notes": {
+        "label": "Notes",
+        "placeholder": "Important notes and reminders"
+      }
+    }
+  },
+  "animalScreen": {
+    "main": {
+      "fieldSummary": "Livestock Summary",
+      "totalProfit": "Total Profit",
+      "underperformingAnimals": "Underperforming Animals",
+      "addNewAnimal": "Add New Animal",
+      "noAnimalsFound": "No animals found.",
+      "loadingAnimals": "Loading animals...",
+      "identification": "Identification",
+      "gender": "Gender",
+      "income": "Income",
+      "cost": "Costs",
+      "notes": "Notes",
+      "profitAndLoss": "Profit",
+      "editAnimalButton": "Edit Animal",
+      "deleteAnimal": {
+        "confirmTitle": "Delete Animal",
+        "confirmMessage": "Are you sure you want to delete this animal?",
+        "cancelButton": "Cancel",
+        "deleteButton": "Yes, Delete",
+        "deleteSuccessful": "Animal deleted successfully.",
+        "deleteError": "Error deleting animal. Please try again."
+      }
+    },
+    "addOrEdit": {
+      "addTitle": "+ Add New Animal",
+      "editTitle": "Edit Animal",
+      "loadingButton": "Saving...",
+      "saveButton": "Save",
+      "updateButton": "Update",
+      "pictureUrl": {
+        "label": "Upload Picture",
+        "placeholder": "Upload Picture"
+      },
+      "identification": {
+        "label": "Identification",
+        "placeholder": "animal's name or number"
+      },
+      "dateOfBirth": {
+        "label": "Date of Birth",
+        "placeholder": "Date of birth of the animal"
+      },
+      "gender": {
+        "label": "Gender",
+        "placeholder": "Gender of the animal"
+      },
+      "sex": {
+        "label": "Sex",
+        "placeholder": "Sex of the animal"
+      },
+      "male": {
+        "label": "Male",
+        "placeholder": "male"
+      },
+      "female": {
+        "label": "Female",
+        "placeholder": "female"
+      },
+      "father": {
+        "label": "Papa",
+        "placeholder": "animal's father or sire"
+      },
+      "mother": {
+        "label": "Mama",
+        "placeholder": "animal's mother or dam"
+      },
+      "animalCost": {
+        "label": "Animal Cost",
+        "placeholder": "animal price"
+      },
+      "feedCost": {
+        "label": "Feed Cost",
+        "placeholder": "feed cost"
+      },
+      "vetCost": {
+        "label": "Vet Cost",
+        "placeholder": "veterinary cost"
+      },
+      "otherCosts": {
+        "label": "Other Costs",
+        "placeholder": "additional costs"
+      },
+      "amountOfMeat": {
+        "label": "Carcass Weight, kg",
+        "placeholder": "overall carcass weight"
+      },
+      "salePrice": {
+        "label": "Total Sale",
+        "placeholder": "overall total sale"
+      },
+      "meatPricePerPound": {
+        "label": "Meat Price Per kg",
+        "placeholder": "cost of 1 kg"
+      },
+      "inseminationCost": {
+        "label": "Insemination Cost",
+        "placeholder": "insemination cost"
+      },
+      "inseminationDate": {
+        "label": "Insemination Date",
+        "placeholder": "date of insemination for the animal"
+      },
+      "breedingDate": {
+        "label": "Breeding Date",
+        "placeholder": "date of breeding for the animal"
+      },
+      "calvingDate": {
+        "label": "Calving date",
+        "placeholder": "date of calving for the animal"
+      },
+      "totalMilkProduced": {
+        "label": "Total Milk Produced Liters",
+        "placeholder": "total milk"
+      },
+      "milkPricePerGallon": {
+        "label": "Milk Price Per Liter",
+        "placeholder": "cost of 1 liter"
+      },
+      "totalCost": {
+        "label": "Total Cost",
+        "placeholder": "total cost for the animal"
+      },
+      "totalIncome": {
+        "label": "Total Income",
+        "placeholder": "total income from the animal"
+      },
+      "totalProfit": {
+        "label": "Total Profit",
+        "placeholder": "total profit from the animal"
+      },
+      "notes": {
+        "label": "Note",
+        "placeholder": "important notes"
+      }
+    }
+  },
+  "dashboardScreen": {
+    "main": {
+      "dashboard": "Dashboard",
+      "statCard": {
+        "profit": "Total Farm Profit",
+        "totalRevenue": "Total Farm Revenue",
+        "totalExpenses": "Total Farm Expenses",
+        "projectedFinancials": "Projected Financials"
+      },
+      "cropDistribution": {
+        "title": "Crop Summary",
+        "totalRevenue": "Total Crop Revenue",
+        "totalExpenses": "Total Crop Expenses",
+        "totalProfit": "Total Crop Profit",
+        "totalLand": "Total Land In Production, Hectares"
+      },
+      "livestockDistribution": {
+        "title": "Livestock Summary",
+        "totalRevenue": "Total Livestock Revenue",
+        "totalExpenses": "Total Livestock Expenses",
+        "totalProfit": "Total Livestock Profit",
+        "totalNumberOfLivestock": "Total Number of Livestock",
+        "totalNumberOfMales": "Total Males",
+        "totalNumberOfFemales": "Total Females",
+        "totalMilk": "Total Milk, L",
+        "totalMeat": "Total Meat Sales, CFA"
+      },
+      "totalProfit": {
+        "title": "Total Farm Profit over time",
+        "totalProfitLast6Months": "Total Profit Last 6 Months",
+        "totalProfitOverTime": "Total Profit Over Time",
+        "months": {
+          "january": "January",
+          "february": "February",
+          "march": "March",
+          "april": "April",
+          "may": "May",
+          "june": "June",
+          "july": "July",
+          "august": "August",
+          "september": "September",
+          "october": "October",
+          "november": "November",
+          "december": "December"
+        }
+      }
+    }
+  },
+  "educationScreen": {
+    "main": {
+      "educationTitle": "Educational Videos",
+      "noResourcesFound": "No educational resources found.",
+      "loadingResources": "Loading educational resources..."
+    },
+    "educationCard": {
+      "watchNow": "Watch Now"
+    }
+  },
+
+  "storeScreen": {
+    "main": {
+      "storeTitle": "Farm Store",
+      "noProductsFound": "No products found.",
+      "loadingProducts": "Loading products...",
+      "viewCart": "View Cart",
+      "card": {
+        "addToCart": "Add to Cart",
+        "price": "Price",
+        "removeFromCart": "Remove from Cart"
+      }
+    }
+  },
+
+  "alertsScreen": {
+    "main": {
+      "title": "Alerts and Notifications",
+      "noResourcesFound": "No educational resources found.",
+      "loadingResources": "Loading educational resources...",
+      "filterAlerts": "Filter Alerts",
+      "allAlerts": "All Alerts",
+      "systemAlerts": "System Alerts",
+      "localAlerts": "Local Alerts",
+      "economicalAlerts": "Economical Alerts",
+      "filter": "Filter",
+      "noAlerts": "No alerts available in this section."
+    }
+  },
+  "cartScreen": {
+    "main": {
+      "title": "Your cart",
+      "emptyCart": "Your cart is empty.",
+      "proceedToCheckout": "Proceed to Checkout",
+      "addMoreItems": "Add More Items",
+      "total": "Total"
+    },
+    "order": {
+      "message": "Order placed successfully!"
+    },
+    "cartCard": {
+      "unitPrice": "Unit Price"
+    },
+    "checkout": {
+      "title": "Select Payment Method",
+      "subtitle": "Choose how you want to pay",
+      "paymentMethods": {
+        "orangeMoney": "Orange Money",
+        "bankDetails": "Bank (BNDA)"
+      },
+      "orangeMoney": {
+        "title": "Orange Money Payment",
+        "subtitle": "Pay via Orange Mobile Money",
+        "merchantName": "Merchant Name",
+        "description": "Send the payment to the number above using Orange Money",
+        "merchantNumber": "Merchant Orange Money Number",
+        "instructions": "To pay via Orange Money, follow these steps:",
+        "step1": "Dial *144# on your mobile phone.",
+        "step2": "Select 'Make a Payment' from the menu.",
+        "step3": "Enter the merchant number: 650 11 22 33.",
+        "step4": "Enter the amount to pay.",
+        "step5": "Confirm the payment with your PIN.",
+        "note": "You will receive a confirmation SMS once the payment is successful."
+      },
+      "bankDetails": {
+        "title": "Bank Payment Details",
+        "subtitle": "Pay via bank transfer",
+        "bankName": "Bank Name",
+        "accountName": "Account Name",
+        "accountNumber": "Account Number",
+        "instructions": "To pay via bank transfer, use the following details:",
+        "step1": "Log in to your online banking or visit your bank branch.",
+        "step2": "Select the option to make a transfer.",
+        "step3": "Enter the bank name: BNDA.",
+        "step4": "Enter the account name: STE GAMOU FARMS.",
+        "step5": "Enter the account number: 00123456789.",
+        "step6": "Enter the amount to transfer and confirm the transaction.",
+        "note": "Keep the transaction receipt for your records."
+      },
+      "orderSummary": {
+        "title": "Order Summary",
+        "totalAmount": "Total Amount",
+        "shippingNotice": "Note: Shipping fee not included",
+        "checkoutCode": "Check-out code",
+        "instruction__one": "Pay with Orange Money",
+        "instruction__two": "Confirm Checkout",
+        "instruction__three": "Call us with confirmation code on +223 90 59 20 27",
+        "confirmCheckoutButton": "Confirm Checkout",
+        "cancelCheckoutButton": "Cancel Checkout"
+      }
+    }
+  },
+  "settings": {
+    "menu": {
+      "myAccount": "My Account",
+      "termsOfService": "Terms of Service",
+      "useAndPrivacy": "Use and Privacy",
+      "privacy": "Privacy Policy",
+      "share": {
+        "title": "Share",
+        "twitter": "Share on Twitter",
+        "facebook": "Share on Facebook",
+        "linkedin": "Share on LinkedIn",
+        "copy": "Copy Link",
+        "copied": "Link Copied!"
+      }
+    }
+  },
+  "loginScreen": {
+    "email": "Email",
+    "password": "Password",
+    "loginButton": "Login",
+    "loadingButton": "Logging in...",
+    "registerButton": "Register",
+    "dontHaveAccount": "Don't have an account? ",
+    "registerDontHaveAccount": "Register",
+    "forgotPassword": "Forgot Password?",
+    "signInWithGoogle": "Sign in with Google",
+    "signInWithPhone": "Sign in with Phone",
+    "continueWith": "Or continue with",
+    "alreadyHaveAccount": "Already have an account? "
+  },
+  "installPrompt": {
+    "full__title": "To install this app on your iPhone, Search and click on this icon",
+    "full__description": "(located close to your browser's address bar) in your browser then click 'Add to Home Screen'",
+    "mini__title": "Install App"
+  },
+  "subscriptionScreen": {
+    "main": {
+      "subscriptionTitle": "Subscription",
+      "amount": "Amount to Pay:"
+    },
+    "card": {
+      "title": "Subscription Code",
+      "description": " To subscribe, make a payment and receive a subscription code. Then enter the subscription code below to have full access to the app.",
+      "subscriptionCode": {
+        "label": "Subscription Code",
+        "placeholder": "Enter your subscription code"
+      },
+      "activateButton": "Verify & Activate Subscription",
+      "needHelp": "Need help? Contact support if you haven't received your code",
+      "loadingButton": "Activating..."
+    }
+  },
+  "subscriptionConfigScreen": {
+    "main": {
+      "subscriptionConfigTitle": "Subscription Configuration"
+    },
+    "form": {
+      "trialPeriod": {
+        "label": "Trial Period (days)",
+        "placeholder": "Enter trial period in days"
+      },
+      "subscriptionDuration": {
+        "label": "Subscription Duration (days)",
+        "placeholder": "Enter subscription duration in days"
+      },
+      "price": {
+        "label": "Subscription Price",
+        "placeholder": "Enter subscription price"
+      },
+      "saveButton": "Save Configuration",
+      "loadingButton": "Saving..."
+    },
+    "messages": {
+      "saveSuccess": "Subscription configuration saved successfully.",
+      "saveError": "Error saving subscription configuration. Please try again."
+    },
+    "noticeCard": {
+      "message": "Your subscription has expired. Pay {amount} to reactivate your account.",
+      "payNowButton": "Click here"
+    }
+  }
+}

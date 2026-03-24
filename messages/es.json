@@ -1,0 +1,476 @@
+{
+  "login": {
+    "appTitle": "La Aplicación Agrícola Universal"
+  },
+  "common": {
+    "logout": "Cerrar sesión",
+    "login": "Iniciar sesión",
+    "back": "Volver",
+    "contactUs": "Contáctenos"
+  },
+  "homeScreen": {
+    "headerTitle": "La Aplicación Agrícola Universal",
+    "agriculture": "Agricultura",
+    "livestock": "Ganadería",
+    "dashboard": "Panel de control",
+    "education": "Educación",
+    "store": "Tienda",
+    "connection": "Conexión",
+    "orders": "Pedidos",
+    "users": "Usuarios"
+  },
+  "agricultureScreen": {
+    "main": {
+      "fieldSummary": "Resumen del campo",
+      "income": "Ingresos",
+      "cost": "Costo",
+      "profitAndLoss": "Ganancia",
+      "addNewCrop": "Agregar nuevo cultivo",
+      "noCropsFound": "No se encontraron cultivos.",
+      "loadingCrops": "Cargando cultivos...",
+      "deleteCrop": {
+        "confirmTitle": "Eliminar cultivo",
+        "confirmMessage": "¿Está seguro de que desea eliminar este cultivo?",
+        "cancelButton": "Cancelar",
+        "deleteButton": "Sí, eliminar"
+      },
+      "cropCard": {
+        "viewDetails": "Ver detalles",
+        "editCrop": "Editar campo",
+        "fieldLabel": "Campo",
+        "cropPlanted": "Cultivo plantado",
+        "expenses": "Gastos",
+        "revenues": "Ingresos",
+        "profit": "Ganancia"
+      }
+    },
+    "addOrEdit": {
+      "addTitle": "+ Agregar un nuevo cultivo",
+      "editTitle": "Editar cultivo",
+      "loadingButton": "Guardando...",
+      "saveButton": "Guardar",
+      "updateButton": "Actualizar",
+      "fieldNumber": {
+        "label": "Número de campo",
+        "placeholder": "Número o nombre del campo dado"
+      },
+      "area": {
+        "label": "Área, Ha"
+      },
+      "cropPlanted": {
+        "label": "Cultivo plantado",
+        "placeholder": "cultivo plantado en el campo"
+      },
+      "seedCostPerHa": {
+        "label": "Costo de semilla/Ha",
+        "placeholder": "costos de las semillas por ha"
+      },
+      "fertilizerCostPerHa": {
+        "label": "Costo de fertilizante/Ha",
+        "placeholder": "costos del fertilizante por ha"
+      },
+      "herbicideCostPerHa": {
+        "label": "Costo de herbicida/Ha",
+        "placeholder": "costos del herbicida por ha"
+      },
+      "laborCostPerHa": {
+        "label": "Costo de mano de obra/Ha",
+        "placeholder": "costos de mano de obra por ha"
+      },
+      "otherCostsPerHa": {
+        "label": "Otros costos/Ha",
+        "placeholder": "costos diversos"
+      },
+      "yieldKgPerHa": {
+        "label": "Rendimiento Kg/Ha",
+        "placeholder": "rendimiento del cultivo plantado por ha"
+      },
+      "pricePerKg": {
+        "label": "Precio/Kg",
+        "placeholder": "precio de mercado por kg"
+      },
+      "expensesPerField": {
+        "label": "Gasto/Campo",
+        "placeholder": "gastos totales para el campo dado"
+      },
+      "revenuesPerField": {
+        "label": "Ingreso/Campo",
+        "placeholder": "ingresos totales para el campo dado"
+      },
+      "profits": {
+        "label": "Ganancia/Campo",
+        "placeholder": "ganancia por campo, cultivo"
+      },
+      "notes": {
+        "label": "Notas",
+        "placeholder": "Notas importantes y recordatorios"
+      }
+    }
+  },
+  "animalScreen": {
+    "main": {
+      "fieldSummary": "Resumen de ganado",
+      "totalProfit": "Ganancia total",
+      "underperformingAnimals": "Animales de bajo rendimiento",
+      "addNewAnimal": "Agregar nuevo animal",
+      "noAnimalsFound": "No se encontraron animales.",
+      "loadingAnimals": "Cargando animales...",
+      "identification": "Identificación",
+      "gender": "Género",
+      "income": "Ingresos",
+      "cost": "Costos",
+      "notes": "Notas",
+      "profitAndLoss": "Ganancia",
+      "editAnimalButton": "Editar animal",
+      "deleteAnimal": {
+        "confirmTitle": "Eliminar animal",
+        "confirmMessage": "¿Está seguro de que desea eliminar este animal?",
+        "cancelButton": "Cancelar",
+        "deleteButton": "Sí, eliminar",
+        "deleteSuccessful": "Animal eliminado con éxito.",
+        "deleteError": "Error al eliminar el animal. Por favor, inténtelo de nuevo."
+      }
+    },
+    "addOrEdit": {
+      "addTitle": "+ Agregar nuevo animal",
+      "editTitle": "Editar animal",
+      "loadingButton": "Guardando...",
+      "saveButton": "Guardar",
+      "updateButton": "Actualizar",
+      "pictureUrl": {
+        "label": "Subir imagen",
+        "placeholder": "Subir imagen"
+      },
+      "identification": {
+        "label": "Identificación",
+        "placeholder": "nombre o número del animal"
+      },
+      "dateOfBirth": {
+        "label": "Fecha de nacimiento",
+        "placeholder": "Fecha de nacimiento del animal"
+      },
+      "gender": {
+        "label": "Género",
+        "placeholder": "Género del animal"
+      },
+      "sex": {
+        "label": "Sexo",
+        "placeholder": "Sexo del animal"
+      },
+      "male": {
+        "label": "Macho",
+        "placeholder": "macho"
+      },
+      "female": {
+        "label": "Hembra",
+        "placeholder": "hembra"
+      },
+      "father": {
+        "label": "Padre",
+        "placeholder": "padre o semental del animal"
+      },
+      "mother": {
+        "label": "Madre",
+        "placeholder": "madre o vaca del animal"
+      },
+      "animalCost": {
+        "label": "Costo del animal",
+        "placeholder": "precio del animal"
+      },
+      "feedCost": {
+        "label": "Costo de alimento",
+        "placeholder": "costo del alimento"
+      },
+      "vetCost": {
+        "label": "Costo veterinario",
+        "placeholder": "costo veterinario"
+      },
+      "otherCosts": {
+        "label": "Otros costos",
+        "placeholder": "costos adicionales"
+      },
+      "amountOfMeat": {
+        "label": "Peso de la canal, kg",
+        "placeholder": "peso total de la canal"
+      },
+      "salePrice": {
+        "label": "Venta total",
+        "placeholder": "venta total global"
+      },
+      "meatPricePerPound": {
+        "label": "Precio de carne por kg",
+        "placeholder": "costo de 1 kg"
+      },
+      "inseminationCost": {
+        "label": "Costo de inseminación",
+        "placeholder": "costo de inseminación"
+      },
+      "inseminationDate": {
+        "label": "Fecha de inseminación",
+        "placeholder": "fecha de inseminación del animal"
+      },
+      "breedingDate": {
+        "label": "Fecha de cría",
+        "placeholder": "fecha de cría del animal"
+      },
+      "calvingDate": {
+        "label": "Fecha de parto",
+        "placeholder": "fecha de parto del animal"
+      },
+      "totalMilkProduced": {
+        "label": "Leche total producida en litros",
+        "placeholder": "leche total"
+      },
+      "milkPricePerGallon": {
+        "label": "Precio de leche por litro",
+        "placeholder": "costo de 1 litro"
+      },
+      "totalCost": {
+        "label": "Costo total",
+        "placeholder": "costo total del animal"
+      },
+      "totalIncome": {
+        "label": "Ingreso total",
+        "placeholder": "ingreso total del animal"
+      },
+      "totalProfit": {
+        "label": "Ganancia total",
+        "placeholder": "ganancia total del animal"
+      },
+      "notes": {
+        "label": "Nota",
+        "placeholder": "notas importantes"
+      }
+    }
+  },
+  "dashboardScreen": {
+    "main": {
+      "dashboard": "Panel de control",
+      "statCard": {
+        "profit": "Ganancia total de la granja",
+        "totalRevenue": "Ingresos totales de la granja",
+        "totalExpenses": "Gastos totales de la granja",
+        "projectedFinancials": "Finanzas proyectadas"
+      },
+      "cropDistribution": {
+        "title": "Resumen de cultivos",
+        "totalRevenue": "Ingresos totales de cultivos",
+        "totalExpenses": "Gastos totales de cultivos",
+        "totalProfit": "Ganancia total de cultivos",
+        "totalLand": "Tierra total en producción, hectáreas"
+      },
+      "livestockDistribution": {
+        "title": "Resumen de ganado",
+        "totalRevenue": "Ingresos totales de ganado",
+        "totalExpenses": "Gastos totales de ganado",
+        "totalProfit": "Ganancia total de ganado",
+        "totalNumberOfLivestock": "Número total de ganado",
+        "totalNumberOfMales": "Total de machos",
+        "totalNumberOfFemales": "Total de hembras",
+        "totalMilk": "Leche total, L",
+        "totalMeat": "Carne total, Kg"
+      },
+      "totalProfit": {
+        "title": "Ganancia total de la granja con el tiempo",
+        "totalProfitLast6Months": "Ganancia total últimos 6 meses",
+        "totalProfitOverTime": "Ganancia total con el tiempo",
+        "months": {
+          "january": "Enero",
+          "february": "Febrero",
+          "march": "Marzo",
+          "april": "Abril",
+          "may": "Mayo",
+          "june": "Junio",
+          "july": "Julio",
+          "august": "Agosto",
+          "september": "Septiembre",
+          "october": "Octubre",
+          "november": "Noviembre",
+          "december": "Diciembre"
+        }
+      }
+    }
+  },
+  "educationScreen": {
+    "main": {
+      "educationTitle": "Videos educativos",
+      "noResourcesFound": "No se encontraron recursos educativos.",
+      "loadingResources": "Cargando recursos educativos..."
+    },
+    "educationCard": {
+      "watchNow": "Ver ahora"
+    }
+  },
+
+  "storeScreen": {
+    "main": {
+      "storeTitle": "Tienda de la granja",
+      "noProductsFound": "No se encontraron productos.",
+      "loadingProducts": "Cargando productos...",
+      "viewCart": "Ver carrito",
+      "card": {
+        "addToCart": "Agregar al carrito",
+        "price": "Precio",
+        "removeFromCart": "Quitar del carrito"
+      }
+    }
+  },
+
+  "alertsScreen": {
+    "main": {
+      "title": "Alertas y notificaciones",
+      "noResourcesFound": "No se encontraron recursos educativos.",
+      "loadingResources": "Cargando recursos educativos...",
+      "filterAlerts": "Filtrar alertas",
+      "allAlerts": "Todas las alertas",
+      "systemAlerts": "Alertas del sistema",
+      "localAlerts": "Alertas locales",
+      "economicalAlerts": "Alertas económicas",
+      "filter": "Filtrar",
+      "noAlerts": "No hay alertas disponibles en esta sección."
+    }
+  },
+  "cartScreen": {
+    "main": {
+      "title": "Su carrito",
+      "emptyCart": "Su carrito está vacío.",
+      "proceedToCheckout": "Proceder al pago",
+      "addMoreItems": "Agregar más artículos",
+      "total": "Total"
+    },
+    "order": {
+      "message": "¡Pedido realizado con éxito!"
+    },
+    "cartCard": {
+      "unitPrice": "Precio unitario"
+    },
+    "checkout": {
+      "title": "Seleccionar método de pago",
+      "subtitle": "Elija cómo desea pagar",
+      "paymentMethods": {
+        "orangeMoney": "Orange Money",
+        "bankDetails": "Banco (BNDA)"
+      },
+      "orangeMoney": {
+        "title": "Pago con Orange Money",
+        "subtitle": "Pagar vía Orange Mobile Money",
+        "merchantName": "Nombre del comerciante",
+        "description": "Enviar el pago al número arriba usando Orange Money",
+        "merchantNumber": "Número del comerciante",
+        "instructions": "Para pagar vía Orange Money, siga estos pasos:",
+        "step1": "Marque *144# en su teléfono móvil.",
+        "step2": "Seleccione 'Realizar un pago' del menú.",
+        "step3": "Ingrese el número del comerciante: 650 11 22 33.",
+        "step4": "Ingrese el monto a pagar.",
+        "step5": "Confirme el pago con su PIN.",
+        "note": "Recibirá un SMS de confirmación una vez que el pago sea exitoso."
+      },
+      "bankDetails": {
+        "title": "Detalles de pago bancario",
+        "subtitle": "Pagar vía transferencia bancaria",
+        "bankName": "Nombre del banco",
+        "accountName": "Nombre de la cuenta",
+        "accountNumber": "Número de cuenta",
+        "instructions": "Para pagar vía transferencia bancaria, use los siguientes detalles:",
+        "step1": "Inicie sesión en su banca en línea o visite su sucursal bancaria.",
+        "step2": "Seleccione la opción para realizar una transferencia.",
+        "step3": "Ingrese el nombre del banco: BNDA.",
+        "step4": "Ingrese el nombre de la cuenta: STE GAMOU FARMS.",
+        "step5": "Ingrese el número de cuenta: 00123456789.",
+        "step6": "Ingrese el monto a transferir y confirme la transacción.",
+        "note": "Conserve el recibo de la transacción para sus registros."
+      },
+      "orderSummary": {
+        "title": "Resumen del pedido",
+        "totalAmount": "Monto total",
+        "shippingNotice": "Nota: Tarifa de envío no incluida",
+        "checkoutCode": "Código de pago",
+        "instruction__one": "Pagar con Orange Money",
+        "instruction__two": "Confirmar pago",
+        "instruction__three": "Llámenos con el código de confirmación al +223 90 59 20 27",
+        "confirmCheckoutButton": "Confirmar pago",
+        "cancelCheckoutButton": "Cancelar pago"
+      }
+    }
+  },
+  "settings": {
+    "menu": {
+      "myAccount": "Mi cuenta",
+      "termsOfService": "Términos de servicio",
+      "useAndPrivacy": "Uso y privacidad",
+      "privacy": "Política de privacidad",
+      "share": {
+        "title": "Compartir",
+        "twitter": "Compartir en Twitter",
+        "facebook": "Compartir en Facebook",
+        "linkedin": "Compartir en LinkedIn",
+        "copy": "Copiar enlace",
+        "copied": "¡Enlace copiado!"
+      }
+    }
+  },
+  "loginScreen": {
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "loginButton": "Iniciar sesión",
+    "loadingButton": "Iniciando sesión...",
+    "registerButton": "Registrarse",
+    "dontHaveAccount": "¿No tiene una cuenta? ",
+    "registerDontHaveAccount": "Registrarse",
+    "forgotPassword": "¿Olvidó su contraseña?",
+    "signInWithGoogle": "Iniciar sesión con Google",
+    "signInWithPhone": "Iniciar sesión con teléfono",
+    "continueWith": "O continuar con",
+    "alreadyHaveAccount": "¿Ya tiene una cuenta? "
+  },
+  "installPrompt": {
+    "full__title": "Para instalar esta aplicación en su iPhone, busque y haga clic en este icono",
+    "full__description": "(ubicado cerca de la barra de direcciones de su navegador) en su navegador y luego haga clic en 'Agregar a la pantalla de inicio'",
+    "mini__title": "Instalar aplicación"
+  },
+  "subscriptionScreen": {
+    "main": {
+      "subscriptionTitle": "Suscripción"
+    },
+    "card": {
+      "title": "Código de suscripción",
+      "description": "Para suscribirse, realice un pago y reciba un código de suscripción. Luego ingrese el código de suscripción a continuación para tener acceso completo a la aplicación.",
+      "subscriptionCode": {
+        "label": "Código de suscripción",
+        "placeholder": "Ingrese su código de suscripción"
+      },
+      "activateButton": "Verificar y activar suscripción",
+      "needHelp": "¿Necesita ayuda? Contacte al soporte si no ha recibido su código",
+      "loadingButton": "Activando..."
+    }
+  },
+  "subscriptionConfigScreen": {
+    "main": {
+      "subscriptionConfigTitle": "Configuración de la suscripción"
+    },
+    "form": {
+      "trialPeriod": {
+        "label": "Período de prueba (días)",
+        "placeholder": "Ingrese el período de prueba en días"
+      },
+      "subscriptionDuration": {
+        "label": "Duración de la suscripción (días)",
+        "placeholder": "Ingrese la duración de la suscripción en días"
+      },
+      "price": {
+        "label": "Precio de la suscripción",
+        "placeholder": "Ingrese el precio de la suscripción"
+      },
+      "saveButton": "Guardar configuración",
+      "loadingButton": "Guardando..."
+    },
+    "messages": {
+      "saveSuccess": "Configuración de la suscripción guardada con éxito.",
+      "saveError": "Error al guardar la configuración de la suscripción. Por favor, inténtelo de nuevo."
+    },
+    "noticeCard": {
+      "message": "Su suscripción ha expirado. Pague {amount} para reactivar su cuenta.",
+      "payNowButton": "Haga clic aquí"
+    }
+  }
+}
