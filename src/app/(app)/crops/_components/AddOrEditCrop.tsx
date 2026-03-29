@@ -1,5 +1,5 @@
 "use client";
-import { auth } from "@/firebase";
+import { authFirebase as auth } from "@/firebaseAuth";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -16,16 +16,16 @@ import { AppLayout } from "@/components/layout/AppLayout";
 import { parseNumericString } from "@/lib/utils";
 
 export default function AddOrEditCrops({
-  isEdit,
-  initialData,
-}: {
+                                         isEdit,
+                                         initialData,
+                                       }: {
   isEdit?: boolean;
   initialData?: TCrop;
 }) {
   const t = useTranslations("agricultureScreen.addOrEdit");
   const router = useRouter();
-  const { id } = useParams(); // Get the crop id from the URL
-  const isEditForm = Boolean(id) && isEdit; // Determine if it's edit mode based on the presence of id
+  const { id } = useParams();
+  const isEditForm = Boolean(id) && isEdit;
   const user = auth.currentUser;
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
@@ -34,33 +34,17 @@ export default function AddOrEditCrops({
 
   const formHandler = useForm({
     resolver: yupResolver(addCropValidation),
-    defaultValues: {
-      //   fieldNumber: 3,
-      //   area: 60,
-      //   crop: "Corn",
-      //   seedCostPerHa: 250,
-      //   fertilizerCostPerHa: 200,
-      //   herbicideCostPerHa: 100,
-      //   laborCostPerHa: 62.55,
-      //   otherCostsPerHa: 0,
-      //   yieldKgPerHa: 220,
-      //   pricePerKg: 3.68,
-      //   expensesPerField: 0,
-      //   revenuesPerField: 0,
-      //   profits: 0,
-      //   note: "Added",
-    },
+    defaultValues: {},
   });
 
   useEffect(() => {
     if (isEditForm && editCropQuery.data) {
-      formHandler.reset(editCropQuery.data); // Populate form with existing crop data
+      formHandler.reset(editCropQuery.data);
     }
   }, [isEditForm, editCropQuery.data]);
 
   const { refetch } = usePaginatedCrops();
 
-  // Watch specific fields for calculation
   const area = formHandler.watch("area");
   const seedCostPerHa = formHandler.watch("seedCostPerHa");
   const fertilizerCostPerHa = formHandler.watch("fertilizerCostPerHa");
@@ -72,18 +56,18 @@ export default function AddOrEditCrops({
 
   const cleanedArea = parseNumericString(area?.toString() || "0");
 
-  // Calculate derived values
   const expensesPerField =
-    ((Number(seedCostPerHa) || 0) +
-      (Number(fertilizerCostPerHa) || 0) +
-      (Number(herbicideCostPerHa) || 0) +
-      (Number(laborCostPerHa) || 0) +
-      (Number(otherCostsPerHa) || 0)) *
-    (Number(cleanedArea) || 1);
+      ((Number(seedCostPerHa) || 0) +
+          (Number(fertilizerCostPerHa) || 0) +
+          (Number(herbicideCostPerHa) || 0) +
+          (Number(laborCostPerHa) || 0) +
+          (Number(otherCostsPerHa) || 0)) *
+      (Number(cleanedArea) || 1);
+
   const revenuesPerField =
-    (Number(yieldKgPerHa) || 0) *
-    (Number(cleanedArea) || 0) *
-    (Number(pricePerKg) || 0);
+      (Number(yieldKgPerHa) || 0) *
+      (Number(cleanedArea) || 0) *
+      (Number(pricePerKg) || 0);
 
   const profits = revenuesPerField - expensesPerField;
 
@@ -98,7 +82,6 @@ export default function AddOrEditCrops({
         profits,
       };
 
-      // Add the new crop to Firestore in the 'crops' collection
       cropController.addCrop({ payload: submitData });
       showToast({ message: "Crop data added successfully", type: "success" });
       refetch();
@@ -108,6 +91,7 @@ export default function AddOrEditCrops({
       setLoading(false);
     }
   };
+
   const handleEditSubmit = async (data: TCrop) => {
     setLoading(true);
 
@@ -117,15 +101,12 @@ export default function AddOrEditCrops({
         expensesPerField,
         revenuesPerField,
         profits,
-        email: user?.email,   // attach user identity
-  userId: user?.uid,
+        email: user?.email,
+        userId: user?.uid,
         year: new Date().getFullYear(),
-  lastEdited: Date.now(),
-};
- // optional but recommended
+        lastEdited: Date.now(),
       };
 
-      // Add the new crop to Firestore in the 'crops' collection
       cropController.editCrop({ id: data.id, payload: submitData });
       showToast({ message: "Crop data edited successfully", type: "success" });
       refetch();
@@ -138,162 +119,159 @@ export default function AddOrEditCrops({
   };
 
   return (
-    <>
-      <AppLayout hasLanguageSwitcher={false} hasBottomBack className="p-6">
-        <header className="text-3xl font-bold my-4 text-center">
-          <h1>{t(isEditForm ? "editTitle" : "addTitle")}</h1>
-        </header>
+      <>
+        <AppLayout hasLanguageSwitcher={false} hasBottomBack className="p-6">
+          <header className="text-3xl font-bold my-4 text-center">
+            <h1>{t(isEditForm ? "editTitle" : "addTitle")}</h1>
+          </header>
 
-        <div className="w-full border-b border-black mb-5"></div>
+          <div className="w-full border-b border-black mb-5"></div>
 
-        <form
-          onSubmit={formHandler.handleSubmit(
-            isEditForm ? handleEditSubmit : (handleAddSubmit as any)
-          )}
-          className="space-y-4"
-        >
-          <MFormInput
-            formHandler={formHandler}
-            label={t("fieldNumber.label")}
-            name="fieldNumber"
-            placeholder={t("fieldNumber.placeholder")}
-            image="/images/crops/field.png"
-          />
-          <MFormInput
-            formHandler={formHandler}
-            label={t("area.label")}
-            name="area"
-            placeholder={t("area.placeholder")}
-            image="/images/crops/area.png"
-          />
-          <MFormInput
-            formHandler={formHandler}
-            label={t("cropPlanted.label")}
-            name="crop"
-            placeholder={t("cropPlanted.placeholder")}
-            image="/images/crops/crop.png"
-          />
-          <MFormInput
-            formHandler={formHandler}
-            label={t("seedCostPerHa.label")}
-            name="seedCostPerHa"
-            placeholder={t("seedCostPerHa.placeholder")}
-            image="/images/crops/seedcost.jpg"
-            imageClassName="w-50! h-25!"
-          />
-
-          <div className="grid grid-cols-1 gap-4 mb-4">
-            <MFormInput
-              formHandler={formHandler}
-              label={t("fertilizerCostPerHa.label")}
-              name="fertilizerCostPerHa"
-              placeholder={t("fertilizerCostPerHa.placeholder")}
-              image="/images/crops/fertcost.jpg"
-              imageClassName="w-50! h-25!"
-            />
-            <MFormInput
-              formHandler={formHandler}
-              label={t("herbicideCostPerHa.label")}
-              name="herbicideCostPerHa"
-              placeholder={t("herbicideCostPerHa.placeholder")}
-              image="/images/crops/sprayingcost.jpg"
-              imageClassName="w-50! h-25!"
-            />
-            <MFormInput
-              formHandler={formHandler}
-              label={t("laborCostPerHa.label")}
-              name="laborCostPerHa"
-              placeholder={t("laborCostPerHa.placeholder")}
-              image="/images/crops/laborcost.jpg"
-              imageClassName="w-50! h-25!"
-            />
-            <MFormInput
-              formHandler={formHandler}
-              label={t("otherCostsPerHa.label")}
-              name="otherCostsPerHa"
-              placeholder={t("otherCostsPerHa.placeholder")}
-              image="/images/crops/othercost.jpg"
-              imageClassName="w-50! h-25!"
-            />
-            <MFormInput
-              formHandler={formHandler}
-              label={t("yieldKgPerHa.label")}
-              name="yieldKgPerHa"
-              placeholder={t("yieldKgPerHa.placeholder")}
-              image="/images/crops/yield.png"
-            />
-            <MFormInput
-              formHandler={formHandler}
-              label={t("pricePerKg.label")}
-              name="pricePerKg"
-              placeholder={t("pricePerKg.placeholder")}
-              image="/images/crops/kiloprice.jpg"
-              imageClassName="w-50 h-25"
-            />
-          </div>
-
-          {/* Expenses, Revenues, and Profits */}
-          <MFormInput
-            formHandler={formHandler}
-            label={t("expensesPerField.label")}
-            name="expensesPerField"
-            image="/images/crops/totalexpenses.jpg"
-            imageClassName="w-50 h-25"
-            value={expensesPerField.toFixed(2)}
-            readOnly={true}
-            type="number"
-            placeholder={t("expensesPerField.placeholder")}
-          />
-
-          <MFormInput
-            formHandler={formHandler}
-            label={t("revenuesPerField.label")}
-            name="revenuesPerField"
-            image="/images/crops/totalincome.jpg"
-            imageClassName="w-50 h-25"
-            value={revenuesPerField.toFixed(2)}
-            readOnly={true}
-            placeholder={t("revenuesPerField.placeholder")}
-            type="number"
-          />
-
-          <MFormInput
-            formHandler={formHandler}
-            label={t("profits.label")}
-            name="profits"
-            image="/images/crops/profit.jpg"
-            imageClassName="w-50 h-25"
-            value={profits.toFixed(2)}
-            readOnly={true}
-            placeholder={t("profits.placeholder")}
-            type="number"
-          />
-
-          {/* Notes */}
-          <MFormInput
-            formHandler={formHandler}
-            label={t("notes.label")}
-            name="note"
-            placeholder={t("notes.placeholder")}
-            image="/images/crops/reminder.png"
-          />
-
-          {/* Submit Button */}
-          <Button
-            loading={loading}
-            loadingText={t("loadingButton")}
-            type="submit"
-            variant="default"
-            className="w-full p-3  text-white rounded-md "
+          <form
+              onSubmit={formHandler.handleSubmit(
+                  isEditForm ? handleEditSubmit : (handleAddSubmit as any)
+              )}
+              className="space-y-4"
           >
-            {t("saveButton")}
-          </Button>
-        </form>
+            <MFormInput
+                formHandler={formHandler}
+                label={t("fieldNumber.label")}
+                name="fieldNumber"
+                placeholder={t("fieldNumber.placeholder")}
+                image="/images/crops/field.png"
+            />
+            <MFormInput
+                formHandler={formHandler}
+                label={t("area.label")}
+                name="area"
+                placeholder={t("area.placeholder")}
+                image="/images/crops/area.png"
+            />
+            <MFormInput
+                formHandler={formHandler}
+                label={t("cropPlanted.label")}
+                name="crop"
+                placeholder={t("cropPlanted.placeholder")}
+                image="/images/crops/crop.png"
+            />
+            <MFormInput
+                formHandler={formHandler}
+                label={t("seedCostPerHa.label")}
+                name="seedCostPerHa"
+                placeholder={t("seedCostPerHa.placeholder")}
+                image="/images/crops/seedcost.jpg"
+                imageClassName="w-50! h-25!"
+            />
 
-        {errorMessage && (
-          <p className="text-red-500 text-center mt-4">{errorMessage}</p>
-        )}
-      </AppLayout>
-    </>
+            <div className="grid grid-cols-1 gap-4 mb-4">
+              <MFormInput
+                  formHandler={formHandler}
+                  label={t("fertilizerCostPerHa.label")}
+                  name="fertilizerCostPerHa"
+                  placeholder={t("fertilizerCostPerHa.placeholder")}
+                  image="/images/crops/fertcost.jpg"
+                  imageClassName="w-50! h-25!"
+              />
+              <MFormInput
+                  formHandler={formHandler}
+                  label={t("herbicideCostPerHa.label")}
+                  name="herbicideCostPerHa"
+                  placeholder={t("herbicideCostPerHa.placeholder")}
+                  image="/images/crops/sprayingcost.jpg"
+                  imageClassName="w-50! h-25!"
+              />
+              <MFormInput
+                  formHandler={formHandler}
+                  label={t("laborCostPerHa.label")}
+                  name="laborCostPerHa"
+                  placeholder={t("laborCostPerHa.placeholder")}
+                  image="/images/crops/laborcost.jpg"
+                  imageClassName="w-50! h-25!"
+              />
+              <MFormInput
+                  formHandler={formHandler}
+                  label={t("otherCostsPerHa.label")}
+                  name="otherCostsPerHa"
+                  placeholder={t("otherCostsPerHa.placeholder")}
+                  image="/images/crops/othercost.jpg"
+                  imageClassName="w-50! h-25!"
+              />
+              <MFormInput
+                  formHandler={formHandler}
+                  label={t("yieldKgPerHa.label")}
+                  name="yieldKgPerHa"
+                  placeholder={t("yieldKgPerHa.placeholder")}
+                  image="/images/crops/yield.png"
+              />
+              <MFormInput
+                  formHandler={formHandler}
+                  label={t("pricePerKg.label")}
+                  name="pricePerKg"
+                  placeholder={t("pricePerKg.placeholder")}
+                  image="/images/crops/kiloprice.jpg"
+                  imageClassName="w-50 h-25"
+              />
+            </div>
+
+            <MFormInput
+                formHandler={formHandler}
+                label={t("expensesPerField.label")}
+                name="expensesPerField"
+                image="/images/crops/totalexpenses.jpg"
+                imageClassName="w-50 h-25"
+                value={expensesPerField.toFixed(2)}
+                readOnly={true}
+                type="number"
+                placeholder={t("expensesPerField.placeholder")}
+            />
+
+            <MFormInput
+                formHandler={formHandler}
+                label={t("revenuesPerField.label")}
+                name="revenuesPerField"
+                image="/images/crops/totalincome.jpg"
+                imageClassName="w-50 h-25"
+                value={revenuesPerField.toFixed(2)}
+                readOnly={true}
+                placeholder={t("revenuesPerField.placeholder")}
+                type="number"
+            />
+
+            <MFormInput
+                formHandler={formHandler}
+                label={t("profits.label")}
+                name="profits"
+                image="/images/crops/profit.jpg"
+                imageClassName="w-50 h-25"
+                value={profits.toFixed(2)}
+                readOnly={true}
+                placeholder={t("profits.placeholder")}
+                type="number"
+            />
+
+            <MFormInput
+                formHandler={formHandler}
+                label={t("notes.label")}
+                name="note"
+                placeholder={t("notes.placeholder")}
+                image="/images/crops/reminder.png"
+            />
+
+            <Button
+                loading={loading}
+                loadingText={t("loadingButton")}
+                type="submit"
+                variant="default"
+                className="w-full p-3 text-white rounded-md"
+            >
+              {t("saveButton")}
+            </Button>
+          </form>
+
+          {errorMessage && (
+              <p className="text-red-500 text-center mt-4">{errorMessage}</p>
+          )}
+        </AppLayout>
+      </>
   );
 }

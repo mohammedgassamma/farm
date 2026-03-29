@@ -1,5 +1,4 @@
 import { PATH_URLS } from "@/app/apiClient/apiRoute";
-import { useGetEducations } from "@/app/apiClient/hooks";
 import { Button } from "@/components/ui/button";
 import { showToast } from "@/lib/toast";
 import { educationController } from "@/server/controllers/education.controller";
