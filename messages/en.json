@@ -55,8 +55,9 @@
         "placeholder": "Number or name of given field"
       },
       "area": {
-        "label": "Area, Ha"
-      },
+  	"label": "Area, Ha",
+  	"placeholder": "area of the field in hectares"
+	},
       "cropPlanted": {
         "label": "Crop Planted",
         "placeholder": "crop planted in the field"

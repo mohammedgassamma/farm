@@ -55,11 +55,12 @@
         "placeholder": "Número o nombre del campo dado"
       },
       "area": {
-        "label": "Área, Ha"
-      },
+  	"label": "Área, Ha",
+  	"placeholder": "área del campo en hectáreas"
+	},
       "cropPlanted": {
         "label": "Cultivo plantado",
-        "placeholder": "cultivo plantado en el campo"
+	"placeholder": "cultivo plantado en el campo"
       },
       "seedCostPerHa": {
         "label": "Costo de semilla/Ha",
