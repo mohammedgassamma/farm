@@ -20,7 +20,9 @@ import Link from "next/link";
 import {
   useGetCropsAggregate,
   usePaginatedCrops,
-} from "@/app/apiClient/hooks";
+} from "@/app/apiClient/hooks"; 
+import { API_URLS } from "@/app/apiClient/apiRoute";
+import { usePaginatedFetch } from "@/hooks/usePaginatedFetch";
 import { PATH_URLS } from "@/app/apiClient/apiRoute";
 import { LoadMoreButton } from "@/components/reusables/LoadMoreButton";
 import { useUserCurrency } from "@/hooks/useUserCurrency";
@@ -50,7 +52,9 @@ export const CropsClientsPage = () => {
     hasNextPage,
     fetchNextPage,
     isFetchingNextPage,
-  } = usePaginatedCrops();
+  } = usePaginatedFetch<TCrop>({
+    queryKey: [API_URLS.GET_ALL_CROPS_WITH_USER],
+  });
 
   const handleDeleteConfirmation = (cropId: string) => {
     setConfirmDelete(true);
@@ -175,6 +179,7 @@ export const CropsClientsPage = () => {
                     )}
                   </div>
               )}
+              
 
               {/* Bouton Export Excel */}
               <Button

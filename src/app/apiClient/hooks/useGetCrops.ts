@@ -20,7 +20,10 @@ export const usePaginatedCrops = () => {
 
   return usePaginatedFetch<TCrop>({
     queryKey: [API_URLS.GET_ALL_CROPS],
-    enabled: !!currentUser ? true : false,
+    enabled: !!currentUser ? true : false,  
+    queryParams: { includeUser: "true" },  // ← ajouter
+    
+    
   });
 };
 

@@ -28,7 +28,8 @@ import {
   exportToExcel,
   formatLivestockForExport,
 } from "@/lib/useExportExcel";
-
+import{API_URLS} from "@/app/apiClient/apiRoute";
+import { usePaginatedFetch } from "@/hooks/usePaginatedFetch";
 export const LivestockClientScreen = () => {
   const t = useTranslations("animalScreen.main");
   const [confirmDelete, setConfirmDelete] = useState<boolean>(false);
@@ -44,7 +45,11 @@ export const LivestockClientScreen = () => {
     hasNextPage,
     fetchNextPage,
     isFetchingNextPage,
-  } = useGetPaginatedLivestocks();
+  } = usePaginatedFetch<TLivestock>({
+      queryKey: [API_URLS.GET_ALL_LIVESTOCK_WITH_USER],
+    });
+  
+  
 
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [isSearchVisible, setIsSearchVisible] = useState<boolean>(false);

@@ -13,6 +13,7 @@ export const useGetLivestocks = () => {
   return useQuery<TLivestock[]>({
     queryKey: [API_URLS.GET_ALL_ANIMALS],
     enabled: !!currentUser ? true : false,
+    
   });
 };
 
@@ -22,6 +23,7 @@ export const useGetPaginatedLivestocks = () => {
   return usePaginatedFetch<TLivestock>({
     queryKey: [API_URLS.GET_ALL_ANIMALS],
     enabled: !!currentUser ? true : false,
+    queryParams: { includeUser: "true" },  // ← ajouter
   });
 };
 

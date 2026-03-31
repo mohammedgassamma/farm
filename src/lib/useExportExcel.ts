@@ -1,5 +1,30 @@
 import * as XLSX from "xlsx";
 
+interface SheetData {
+  data: Record<string, any>[];
+  sheetName: string;
+}
+
+export const exportTwoSheetsToExcel = ({
+  sheets,
+  fileName,
+}: {
+  sheets: SheetData[]; // tableau de feuilles à inclure
+  fileName: string;
+}) => {
+  if (!sheets || sheets.length === 0) return;
+
+  const workbook = XLSX.utils.book_new();
+
+  sheets.forEach(({ data, sheetName }) => {
+    if (!data || data.length === 0) return;
+    const worksheet = XLSX.utils.json_to_sheet(data);
+    XLSX.utils.book_append_sheet(workbook, worksheet, sheetName);
+  });
+
+  XLSX.writeFile(workbook, `${fileName}.xlsx`);
+};
+
 export const exportToExcel = ({
                                   data,
                                   fileName,
@@ -19,7 +44,11 @@ export const exportToExcel = ({
 
 // Colonnes Agriculture (sans Notes)
 export const formatCropsForExport = (crops: any[]) => {
-    return crops.map((crop) => ({
+    return crops.map((crop) => ({ 
+        "Adresse email":         crop.user?.email ?? "",
+    "Date d'Inscription": crop.user?.createdAt
+    ? crop.user.createdAt.toDate().toLocaleDateString("fr-FR")
+    : "",
         "Field Number": crop.fieldNumber,
         "Area (Ha)": crop.area,
         "Crop Planted": crop.crop,
@@ -39,6 +68,10 @@ export const formatCropsForExport = (crops: any[]) => {
 // Colonnes Élevage (sans Notes)
 export const formatLivestockForExport = (animals: any[]) => {
     return animals.map((animal) => ({
+          "Adresse email":         animal.user?.email ?? "",
+    "Date d'Inscription": animal.user?.createdAt
+    ? animal.user.createdAt.toDate().toLocaleDateString("fr-FR")
+    : "",
         Identification: animal.identification,
         "Date of Birth": animal.dateOfBirth || "",
         Sex: animal.sex,

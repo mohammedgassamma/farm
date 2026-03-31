@@ -34,7 +34,10 @@ export const API_URLS = {
   GET_USER_BY_ID: (id: string) => `users/${id}`,
 
   GET_ALL_SUBSCRIPTIONS_CONFIGS: "subscriptionConfigs?getAll=true",
-  GET_SUBSCRIPTION_CONFIGS: "subscriptionConfigs",
+  GET_SUBSCRIPTION_CONFIGS: "subscriptionConfigs", 
+
+  GET_ALL_CROPS_WITH_USER: "crops?includeUser=true",
+  GET_ALL_LIVESTOCK_WITH_USER: "animals?includeUser=true",
 };
 
 export const PATH_URLS = {
