@@ -245,7 +245,9 @@
   },
   "dashboardScreen": {
     "main": {
+
       "dashboard": "Tableau de bord",
+      "download":"Télécharger toutes les données utilisateur",
       "statCard": {
         "profit": "Bénéfice Total de la Ferme",
         "totalRevenue": "Revenu Total de la Ferme",
@@ -417,7 +419,9 @@
     "continueWith": "ou Continuer avec...",
     "signInWithGoogle": "Se connecter avec Google",
     "signInWithPhone": "Se Connecter avec un numéro de téléphone",
-    "alreadyHaveAccount": "Vous avez déjà un compte? "
+    "alreadyHaveAccount": "Vous avez déjà un compte? ",
+    "country":"Pays",
+    "department":"Département/Région"
   },
   "installPrompt": {
     "full__title": "Pour installer cette application sur votre iPhone, recherchez et cliquez sur cette icône",

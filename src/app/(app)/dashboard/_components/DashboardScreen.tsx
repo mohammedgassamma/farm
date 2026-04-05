@@ -178,7 +178,7 @@ export const DashboardScreen = ({
       translate="yes"
     >
       
-       <span>Download All User Data</span>
+       <span>{t("download")}</span>
     </button>
   </div>
 

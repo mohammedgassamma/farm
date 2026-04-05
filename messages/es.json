@@ -247,6 +247,7 @@
   "dashboardScreen": {
     "main": {
       "dashboard": "Panel de control",
+      "download":"Descargar todos los datos de usuario",
       "statCard": {
         "profit": "Ganancia total de la granja",
         "totalRevenue": "Ingresos totales de la granja",
@@ -422,7 +423,9 @@
     "signInWithGoogle": "Iniciar sesión con Google",
     "signInWithPhone": "Iniciar sesión con teléfono",
     "continueWith": "O continuar con",
-    "alreadyHaveAccount": "¿Ya tiene una cuenta? "
+    "alreadyHaveAccount": "¿Ya tiene una cuenta? ",
+    "country":"País",
+    "department":"Departamento/Región"
   },
   "installPrompt": {
     "full__title": "Para instalar esta aplicación en su iPhone, busque y haga clic en este icono",

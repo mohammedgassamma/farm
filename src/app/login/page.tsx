@@ -170,7 +170,7 @@ export default function LoginPage() {
                 <div className="mb-4">
                   <Input
                     type="text"
-                    placeholder="Country"
+                    placeholder= {t("loginScreen.country")}
                     value={country}
                     onChange={(e) => setCountry(e.target.value)}
                     required
@@ -181,7 +181,7 @@ export default function LoginPage() {
                 <div className="mb-4">
                   <Input
                     type="text"
-                    placeholder="Department / Region"
+                    placeholder= {t("loginScreen.department")}
                     value={department}
                     onChange={(e) => setDepartment(e.target.value)}
                     required
