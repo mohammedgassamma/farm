@@ -40,6 +40,8 @@ export type TLivestock = {
     email: string;
     createdAt: string;
     ipCountry?: string;
+    country?: string;      // 🔥 AJOUT
+  department?: string;   // 🔥 AJOUT
   };
 };
 export class LiveStockService extends BaseService<TLivestock> {

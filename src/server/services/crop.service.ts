@@ -25,7 +25,9 @@ export type TCrop = {
   user?: {           // ← ajouter ce bloc
     email: string;
     createdAt: string;
-    ipCountry?: string;
+    ipCountry?: string; 
+    country?: string;      // 🔥 AJOUT
+  department?: string;   // 🔥 AJOUT
   };
 };
 

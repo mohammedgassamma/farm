@@ -20,6 +20,8 @@ export type TUserWithoutSubscription = {
   createdAt: any;
   lastLogin: any;
   currency?: string;
+  country?: string;      // 🔥 AJOUT
+  department?: string;   // 🔥 AJOUT
 };
 
 export interface TDbUser extends TUserWithoutSubscription {

@@ -174,10 +174,11 @@ export const DashboardScreen = ({
   <div className="mb-6 flex justify-center">
     <button
       className="btn primary px-4 py-2 rounded bg-blue-600 text-white"
-      onClick={handleExport}
+      onClick={handleExport} 
+      translate="yes"
     >
       
-      Download All User Data
+       <span>Download All User Data</span>
     </button>
   </div>
 

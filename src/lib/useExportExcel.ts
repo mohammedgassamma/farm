@@ -49,6 +49,8 @@ export const formatCropsForExport = (crops: any[]) => {
     "Date d'Inscription": crop.user?.createdAt
     ? crop.user.createdAt.toDate().toLocaleDateString("fr-FR")
     : "",
+        "Country": crop.user?.country || "",
+        "Department": crop.user?.department || "",
         "Field Number": crop.fieldNumber,
         "Area (Ha)": crop.area,
         "Crop Planted": crop.crop,
@@ -72,6 +74,8 @@ export const formatLivestockForExport = (animals: any[]) => {
     "Date d'Inscription": animal.user?.createdAt
     ? animal.user.createdAt.toDate().toLocaleDateString("fr-FR")
     : "",
+    "Country": animal.user?.country || "",
+        "Department": animal.user?.department || "",
         Identification: animal.identification,
         "Date of Birth": animal.dateOfBirth || "",
         Sex: animal.sex,

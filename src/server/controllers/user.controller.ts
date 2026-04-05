@@ -2,7 +2,11 @@ import { serverTimestamp } from "firebase/firestore";
 import { TDbUser } from "../services/user.service";
 import { BaseController } from "./base.controller";
 
-class UserController extends BaseController {
+ 
+
+class UserController extends BaseController { 
+
+  
   deleteUser({ id }: { id: string }) {
     return this.userService.delete(id);
   }
@@ -26,17 +30,30 @@ class UserController extends BaseController {
     await this.subscriptionService.checkSubscriptionOnLogin(id);
 
     return newUser;
-  }
+  } 
 
-  async createOrAddUser({ user }: { user: any }) {
+
+
+  async createOrAddUser({
+    user,
+    extraData,
+  }: {
+    user: any;
+    extraData?: {
+      country?: string;
+      department?: string;
+    };
+  }) {
     return await userController.addUser({
       payload: {
-        email: user?.email || "",
-        createdAt: serverTimestamp(),
-        lastLogin: serverTimestamp(),
-        userId: user?.uid as string,
-        id: user?.uid as string,
-      },
+      email: user?.email || "",
+      createdAt: serverTimestamp(),
+      lastLogin: serverTimestamp(),
+      userId: user?.uid as string,
+      id: user?.uid as string,
+      country: extraData?.country || "",
+      department: extraData?.department || "",
+    },
       id: user?.uid as string,
     });
   }

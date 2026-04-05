@@ -90,7 +90,7 @@ export const LivestockClientScreen = () => {
       animal.identification.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  const handleExport = () => {
+ /* const handleExport = () => {
     setIsExporting(true);
     try {
       const dataToExport = formatLivestockForExport(filteredAnimals);
@@ -105,7 +105,7 @@ export const LivestockClientScreen = () => {
     } finally {
       setIsExporting(false);
     }
-  };
+  }; */
 
   return (
       <>
@@ -179,17 +179,7 @@ export const LivestockClientScreen = () => {
                 </div>
             )}
 
-            {/* Bouton Export Excel */}
-            <Button
-                variant="outline"
-                size="lg"
-                onClick={handleExport}
-                disabled={isExporting || filteredAnimals.length === 0}
-                className="flex items-center gap-2 border-green-600 text-green-600 hover:bg-green-50"
-            >
-              <ArrowDownTrayIcon className="w-5 h-5" />
-              {isSearchVisible ? "" : "Excel"}
-            </Button>
+           
 
             {/* Bouton Ajouter */}
             <div className="grow">
