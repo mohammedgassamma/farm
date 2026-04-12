@@ -12,7 +12,8 @@ import { showToast } from "@/lib/toast";
 import { Button } from "@/components/ui/button"; // ✅ FIX
 import { ArrowDownTrayIcon } from "@heroicons/react/24/outline"; // ✅ FIX
 import { useState } from "react"; // ✅ pour loading
-import { getAllUsersFullData } from "@/lib/getAllUsersFullData";
+import { getAllUsersFullData } from "@/lib/getAllUsersFullData"; 
+import  { useTranslations } from "next-intl"; // ✅ pour les traductions
 
 export default function Userpage() {
   const {
@@ -28,7 +29,7 @@ export default function Userpage() {
   const [isExporting, setIsExporting] = useState(false); // ✅ UX propre
 
   
-
+const tExport  = useTranslations("export");
 const handleExportAllUsers = async () => {
   try {
     setIsExporting(true);
@@ -38,6 +39,7 @@ const handleExportAllUsers = async () => {
     exportAllUsersToExcel({
       livestockData: data.livestock,
       cropsData: data.crops,
+      t: tExport,
     });
 
     showToast({ message: "Export global réussi", type: "success" });

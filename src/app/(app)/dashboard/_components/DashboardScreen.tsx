@@ -99,26 +99,26 @@ export const DashboardScreen = ({
       });
        const filteredAnimals = animals.filter((animal) =>
       animal.identification.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  ); 
+  const tExport  = useTranslations("export");
   const handleExport = () => {
-       
-      try {
-        const elevageData = formatLivestockForExport(filteredAnimals);
-        const agricultureData = formatCropsForExport(filteredCrops);
-          exportTwoSheetsToExcel({
-    fileName:   `Agriculture_Elevage_${new Date().toISOString().split("T")[0]}`,
-    sheets: [
-      { data: agricultureData, sheetName: "Agriculture" },
-      { data: elevageData, sheetName: "Elevage" },
-    ],
-  });
-         
-        showToast({ message: "Export réussi", type: "success" });
-      } catch (error) {
-        showToast({ message: "Erreur lors de l'export", type: "error" });
-      }  
-    };
- 
+    try {
+      const elevageData     = formatLivestockForExport(filteredAnimals, tExport);
+      const agricultureData = formatCropsForExport(filteredCrops, tExport);
+
+      exportTwoSheetsToExcel({
+        fileName: `Agriculture_Elevage_${new Date().toISOString().split("T")[0]}`,
+        sheets: [
+          { data: agricultureData, sheetName: tExport("sheetCrops")     },
+          { data: elevageData,     sheetName: tExport("sheetLivestock")  },
+        ],
+      });
+
+      showToast({ message: tExport("exportSuccess"), type: "success" });
+    } catch (error) {
+      showToast({ message: tExport("exportError"), type: "error" });
+    }
+  };
 
   const t = useTranslations("dashboardScreen.main");
 
