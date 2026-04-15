@@ -32,7 +32,13 @@ const storage = getStorage(app);
 const auth = getAuth(app);
 
 // 🔥 Connexion aux emulators
-if (process.env.NEXT_PUBLIC_APP_ENV === "development") {
+if (
+  process.env.NEXT_PUBLIC_APP_ENV === "development" &&
+  process.env.NEXT_PUBLIC_FIRESTORE_EMULATOR_HOST &&
+  process.env.NEXT_PUBLIC_FIRESTORE_EMULATOR_PORT &&
+  process.env.NEXT_PUBLIC_AUTH_EMULATOR_HOST &&
+  process.env.NEXT_PUBLIC_AUTH_EMULATOR_PORT
+) {
   connectFirestoreEmulator(
     db,
     process.env.NEXT_PUBLIC_FIRESTORE_EMULATOR_HOST,
