@@ -1,6 +1,5 @@
 // src/firebaseAuth.js
 import {
-  getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   sendPasswordResetEmail,
@@ -8,9 +7,9 @@ import {
 } from "firebase/auth";
 import nookies from "nookies";
 
-import db from "./firebaseConfig";
+import { auth } from "./firebaseConfig";
 
-const authFirebase = getAuth();
+const authFirebase = auth;
 
 export const setupRecaptcha = () => {
   if (!window.recaptchaVerifier) {

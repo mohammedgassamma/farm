@@ -20,6 +20,8 @@ import {
   startAfter,
   serverTimestamp,
   setDoc,
+  QueryDocumentSnapshot,
+  DocumentData,
 } from "firebase/firestore";
 
 export class BaseService<T extends { id?: string }> {
@@ -30,18 +32,22 @@ export class BaseService<T extends { id?: string }> {
   }
 
   async create(data: Omit<T, "id">): Promise<string> {
+    const userId = authFirebase.currentUser?.uid;
+    if (!userId) throw new Error("User not authenticated");
     const docRef = await addDoc(collection(db, this.collectionName), {
       ...data,
-      userId: authFirebase.currentUser?.uid,
+      userId,
       createdAt: serverTimestamp(),
       updatedAt: serverTimestamp(),
     });
     return docRef.id;
   }
   async setDoc(data: Omit<T, "id">, id: string): Promise<string> {
-    const docRef = await setDoc(doc(db, this.collectionName, id), {
+    const userId = authFirebase.currentUser?.uid;
+    if (!userId) throw new Error("User not authenticated");
+    await setDoc(doc(db, this.collectionName, id), {
       ...data,
-      userId: authFirebase.currentUser?.uid,
+      userId,
       createdAt: serverTimestamp(),
       updatedAt: serverTimestamp(),
     });
@@ -54,9 +60,11 @@ export class BaseService<T extends { id?: string }> {
     data: Omit<T, "id">;
     id: string;
   }): Promise<void> {
+    const userId = authFirebase.currentUser?.uid;
+    if (!userId) throw new Error("User not authenticated");
     await setDoc(doc(db, this.collectionName, id), {
       ...data,
-      userId: authFirebase.currentUser?.uid,
+      userId,
       createdAt: serverTimestamp(),
       updatedAt: serverTimestamp(),
     });
@@ -64,11 +72,11 @@ export class BaseService<T extends { id?: string }> {
 
   async getAll(): Promise<T[]> {
     const snapshot = await getDocs(collection(db, this.collectionName));
-    return snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() } as T));
+    return snapshot.docs.map((snap: QueryDocumentSnapshot<DocumentData>) => ({ id: snap.id, ...snap.data() } as T));
   }
   async getAllByCollectionName({ cName }: { cName: string }): Promise<T[]> {
     const snapshot = await getDocs(collection(db, cName));
-    return snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() } as T));
+    return snapshot.docs.map((snap: QueryDocumentSnapshot<DocumentData>) => ({ id: snap.id, ...snap.data() } as T));
   }
 
   async findBy(filter?: { field: keyof T; value: any }): Promise<T[]> {
@@ -79,7 +87,7 @@ export class BaseService<T extends { id?: string }> {
       : colRef;
 
     const snapshot = await getDocs(q);
-    return snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() } as T));
+    return snapshot.docs.map((snap: QueryDocumentSnapshot<DocumentData>) => ({ id: snap.id, ...snap.data() } as T));
   }
 
   async findByIdWithCollectionName({
@@ -108,7 +116,7 @@ export class BaseService<T extends { id?: string }> {
     const q = userId ? query(colRef, where("userId", "==", userId)) : colRef;
 
     const snapshot = await getDocs(q);
-    return snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() } as T));
+    return snapshot.docs.map((snap: QueryDocumentSnapshot<DocumentData>) => ({ id: snap.id, ...snap.data() } as T));
   }
   async getBySpecifiedUserId(userId: string): Promise<T[]> {
     if (!userId) {
@@ -120,7 +128,7 @@ export class BaseService<T extends { id?: string }> {
     const q = userId ? query(colRef, where("userId", "==", userId)) : colRef;
 
     const snapshot = await getDocs(q);
-    return snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() } as T));
+    return snapshot.docs.map((snap: QueryDocumentSnapshot<DocumentData>) => ({ id: snap.id, ...snap.data() } as T));
   }
 
   async findByUserIdWithCollectionName({
@@ -142,7 +150,7 @@ export class BaseService<T extends { id?: string }> {
 
     const snapshot = await getDocs(q);
     return (
-      snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() } as T)) ??
+      snapshot.docs.map((snap: QueryDocumentSnapshot<DocumentData>) => ({ id: snap.id, ...snap.data() } as T)) ??
       fallback
     );
   }
@@ -256,7 +264,7 @@ export class BaseService<T extends { id?: string }> {
 
     const hasMore = snapshot.docs.length > pageSize;
     const docs = hasMore ? snapshot.docs.slice(0, pageSize) : snapshot.docs;
-    const data = docs.map((doc) => ({ id: doc.id, ...doc.data() } as T));
+    const data = docs.map((snap: QueryDocumentSnapshot<DocumentData>) => ({ id: snap.id, ...snap.data() } as T));
     const newLastDoc = docs.length > 0 ? docs[docs.length - 1] : null;
 
     return {
@@ -308,7 +316,7 @@ export class BaseService<T extends { id?: string }> {
 
       const hasMore = snapshot.docs.length > pageSize;
       const docs = hasMore ? snapshot.docs.slice(0, pageSize) : snapshot.docs;
-      const data = docs.map((doc) => ({ id: doc.id, ...doc.data() } as T));
+      const data = docs.map((snap: QueryDocumentSnapshot<DocumentData>) => ({ id: snap.id, ...snap.data() } as T));
       const newLastDoc = docs.length > 0 ? docs[docs.length - 1] : null;
 
       return {
@@ -354,7 +362,7 @@ export class BaseService<T extends { id?: string }> {
 
     const hasMore = snapshot.docs.length > pageSize;
     const docs = hasMore ? snapshot.docs.slice(0, pageSize) : snapshot.docs;
-    const data = docs.map((doc) => ({ id: doc.id, ...doc.data() } as T));
+    const data = docs.map((snap: QueryDocumentSnapshot<DocumentData>) => ({ id: snap.id, ...snap.data() } as T));
     const newLastDoc = docs.length > 0 ? docs[docs.length - 1] : null;
 
     return {
