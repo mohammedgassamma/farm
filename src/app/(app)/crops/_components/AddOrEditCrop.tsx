@@ -101,13 +101,13 @@ export default function AddOrEditCrops({
         expensesPerField,
         revenuesPerField,
         profits,
-        email: user?.email,
-        userId: user?.uid,
+        email: user?.email ?? "",
+        userId: user?.uid ?? "",
         year: new Date().getFullYear(),
         lastEdited: Date.now(),
       };
 
-      cropController.editCrop({ id: data.id, payload: submitData });
+      cropController.editCrop({ id: data.id, payload: submitData as unknown as TCrop });
       showToast({ message: "Crop data edited successfully", type: "success" });
       refetch();
       editCropQuery.refetch();
