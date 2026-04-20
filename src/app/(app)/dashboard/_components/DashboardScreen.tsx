@@ -21,7 +21,7 @@ import { LivestockData } from "./LivestockData";
 import { CropsDistribution } from "./CropsDistribution";
 import { useGetProfitOverTime } from "../hooks/useGetProfitOverTime";
 import { useAuth } from "@/providers/AuthProvider";
-import { exportAllDataAsAdmin } from "@/utils/exportAllDataAsAdmin";   
+import { exportAllUserData } from "@/app/utils/exports";
 const monthKeys = [
   "january",
   "february",
@@ -56,23 +56,13 @@ export const DashboardScreen = ({
   includeUserId: boolean;
   isAdminDashboard: boolean;
 }) => {
-  const [showModal, setShowModal] = useState(false);
-  const [downloadLinks, setDownloadLinks] = useState({
-    crops: "",
-    livestock: ""
-  });
   const handleAdminDownloadAll = async () => {
     try {
-      const { cropsUrl, livestockUrl } = await exportAllDataAsAdmin();
-
-      setDownloadLinks({
-        crops: cropsUrl,
-        livestock: livestockUrl
-      });
-
-      setShowModal(true);
+      const user = currentUser;
+      if (!user) return alert("Not authenticated");
+      await exportAllUserData(user);
     } catch (err) {
-      console.error("Admin export failed:", err);
+      console.error("Export failed:", err);
       alert("Something went wrong while exporting data.");
     }
   };
@@ -191,40 +181,6 @@ export const DashboardScreen = ({
           />
         </div>
       ) : null}
-      {showModal && (
-  <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-    <div className="bg-white p-6 rounded shadow-lg max-w-sm w-full">
-      <h2 className="text-xl font-bold mb-4">All user data is ready</h2>
-
-      <p className="mb-4">Choose the files you want to download.</p>
-
-      <div className="flex flex-col gap-3 mb-4">
-        <a
-          href={downloadLinks.crops}
-          download
-          className="px-4 py-2 bg-blue-600 text-white rounded text-center"
-        >
-          Download All Crops CSV
-        </a>
-
-        <a
-          href={downloadLinks.livestock}
-          download
-          className="px-4 py-2 bg-green-600 text-white rounded text-center"
-        >
-          Download All Livestock CSV
-        </a>
-      </div>
-
-      <button
-        onClick={() => setShowModal(false)}
-        className="px-4 py-2 bg-gray-300 rounded w-full"
-      >
-        Close
-      </button>
-    </div>
-  </div>
-)}
     </AppLayout>
   );
 };
