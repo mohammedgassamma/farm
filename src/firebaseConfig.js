@@ -19,8 +19,8 @@ const firebaseConfig = {
 
 const app = firebase.initializeApp(firebaseConfig);
 
-// 🔒 App Check seulement en production
-if (process.env.NEXT_PUBLIC_APP_ENV !== "development") {
+// App Check uniquement côté client en production
+if (process.env.NEXT_PUBLIC_APP_ENV !== "development" && typeof window !== "undefined") {
   firebase.appCheck().activate(
     "6LekOXwsAAAAABwMaVYgWptIYEiBiCOdewpS1OCJ",
     true
