@@ -264,7 +264,7 @@ export class BaseService<T extends { id?: string }> {
 
     const hasMore = snapshot.docs.length > pageSize;
     const docs = hasMore ? snapshot.docs.slice(0, pageSize) : snapshot.docs;
-    const data = docs.map((snap: QueryDocumentSnapshot<DocumentData>) => ({ id: snap.id, ...snap.data() } as T));
+    const data = docs.map((doc) => ({ id: doc.id, ...doc.data() } as T));
     const newLastDoc = docs.length > 0 ? docs[docs.length - 1] : null;
 
     return {
@@ -277,11 +277,13 @@ export class BaseService<T extends { id?: string }> {
   // Get all documents by userId from dynamic collectionName
   async findByUserIdWithCollectionNameWithPagination({
     cName,
+    userService, // <- passer le service ici
     fallback = [],
     pageSize = 10,
     lastDoc = null,
   }: {
     cName: string;
+    userService?: { getById: (id: string) => Promise<any> };
     fallback?: any;
     pageSize?: number;
     lastDoc?: any;
@@ -291,9 +293,13 @@ export class BaseService<T extends { id?: string }> {
 
       if (!userId) {
         return { data: [], lastDoc: null, hasMore: false };
-      }
+      } 
+      const includeUser = cName.includes("includeUser=true");
+      const cleanCName = cName.replace("?includeUser=true", "");
 
-      const colRef = collection(db, cName);
+      const colRef = collection(db, cleanCName);
+
+      //const colRef = collection(db, cName);
 
       let q = query(
         colRef,
@@ -316,7 +322,17 @@ export class BaseService<T extends { id?: string }> {
 
       const hasMore = snapshot.docs.length > pageSize;
       const docs = hasMore ? snapshot.docs.slice(0, pageSize) : snapshot.docs;
-      const data = docs.map((snap: QueryDocumentSnapshot<DocumentData>) => ({ id: snap.id, ...snap.data() } as T));
+      let data = docs.map((doc) => ({ id: doc.id, ...doc.data() } as T));
+
+      if (cName.includes("includeUser=true") && userService) {
+        data = await Promise.all(
+          data.map(async (item: any) => {
+            if (!item.userId) return item;
+            const user = await userService.getById(item.userId);
+            return { ...item, user };
+          })
+        );
+      }
       const newLastDoc = docs.length > 0 ? docs[docs.length - 1] : null;
 
       return {

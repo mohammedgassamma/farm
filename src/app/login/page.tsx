@@ -32,6 +32,8 @@ export default function LoginPage() {
   const router = useRouter();
   const [locale, setLocale] = useState<string>("en");
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [country, setCountry] = useState("");
+  const [department, setDepartment] = useState("");
 
   useEffect(() => {
     const fetchLocale = async () => {
@@ -57,7 +59,15 @@ export default function LoginPage() {
         await loginUser(email, password);
       }
       const token = await authFirebase.currentUser?.getIdToken();
-      await userController.createOrAddUser({ user: authFirebase.currentUser });
+     
+      //await userController.createOrAddUser({ user: authFirebase.currentUser });
+      await userController.createOrAddUser({
+        user: authFirebase.currentUser,
+        extraData: {
+          country,
+          department,
+        },
+      });
       nookies.set(undefined, "token", token as string, {
         path: "/",
         secure: true,
@@ -155,6 +165,31 @@ export default function LoginPage() {
                 className="w-full p-3 border border-gray-300 rounded-md bg-white"
               />
             </div>
+            {isRegister && (
+              <>
+                <div className="mb-4">
+                  <Input
+                    type="text"
+                    placeholder= {t("loginScreen.country")}
+                    value={country}
+                    onChange={(e) => setCountry(e.target.value)}
+                    required
+                    className="w-full p-3 border border-gray-300 rounded-md bg-white"
+                  />
+                </div>
+
+                <div className="mb-4">
+                  <Input
+                    type="text"
+                    placeholder= {t("loginScreen.department")}
+                    value={department}
+                    onChange={(e) => setDepartment(e.target.value)}
+                    required
+                    className="w-full p-3 border border-gray-300 rounded-md bg-white"
+                  />
+                </div>
+              </>
+            )}
 
             {/* Submit Button */}
             <Button

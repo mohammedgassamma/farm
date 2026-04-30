@@ -21,7 +21,14 @@ import { LivestockData } from "./LivestockData";
 import { CropsDistribution } from "./CropsDistribution";
 import { useGetProfitOverTime } from "../hooks/useGetProfitOverTime";
 import { useAuth } from "@/providers/AuthProvider";
-import { exportAllDataAsAdmin } from "@/utils/exportAllDataAsAdmin";   
+ 
+import { exportTwoSheetsToExcel,formatCropsForExport,formatLivestockForExport } from "@/lib/useExportExcel";
+import { usePaginatedFetch } from "@/hooks/usePaginatedFetch";
+import { API_URLS } from "@/app/apiClient/apiRoute";
+import { TCrop } from "@/server/services/crop.service";
+import { TLivestock } from "@/server/services/livestock.service";
+import { showToast } from "@/lib/toast";
+
 const monthKeys = [
   "january",
   "february",
@@ -60,20 +67,56 @@ export const DashboardScreen = ({
   const [downloadLinks, setDownloadLinks] = useState({
     crops: "",
     livestock: ""
-  });
-  const handleAdminDownloadAll = async () => {
-    try {
-      const { cropsUrl, livestockUrl } = await exportAllDataAsAdmin();
+  }); 
+  const [searchQuery, setSearchQuery] = useState<string>("");
 
-      setDownloadLinks({
-        crops: cropsUrl,
-        livestock: livestockUrl
+   const {
+      items: crops,
+      isLoading,
+      error,
+      refetch,
+      hasNextPage,
+      fetchNextPage,
+      isFetchingNextPage,
+    } = usePaginatedFetch<TCrop>({
+      queryKey: [API_URLS.GET_ALL_CROPS_WITH_USER],
+    });
+
+    const filteredCrops = crops.filter(
+      (crop) =>
+          crop.fieldNumber
+              .toString()
+              .toLowerCase()
+              .includes(searchQuery.toLowerCase()) ||
+          crop.crop.toLowerCase().includes(searchQuery.toLowerCase())
+  ); 
+
+    const {
+      items: animals = [],
+      
+    } = usePaginatedFetch<TLivestock>({
+        queryKey: [API_URLS.GET_ALL_LIVESTOCK_WITH_USER],
+      });
+       const filteredAnimals = animals.filter((animal) =>
+      animal.identification.toLowerCase().includes(searchQuery.toLowerCase())
+  ); 
+  const tExport  = useTranslations("export");
+  const handleExport = () => {
+    try {
+      const elevageData     = formatLivestockForExport(filteredAnimals, tExport);
+      const agricultureData = formatCropsForExport(filteredCrops, tExport);
+
+      exportTwoSheetsToExcel({
+        fileName: `Agriculture_Elevage_${new Date().toISOString().split("T")[0]}`,
+        sheets: [
+          { data: agricultureData, sheetName: tExport("sheetCrops")     },
+          { data: elevageData,     sheetName: tExport("sheetLivestock")  },
+        ],
       });
 
-      setShowModal(true);
-    } catch (err) {
-      console.error("Admin export failed:", err);
-      alert("Something went wrong while exporting data.");
+      showToast({ message: tExport("exportSuccess"), type: "success" });
+    } catch (error) {
+      showToast({ message: tExport("exportError"), type: "error" });
     }
   };
 
@@ -127,16 +170,18 @@ export const DashboardScreen = ({
       </header>
 
       <div className="w-full border-b border-black mb-5"></div>
-     {isAdmin && (
+    
   <div className="mb-6 flex justify-center">
     <button
       className="btn primary px-4 py-2 rounded bg-blue-600 text-white"
-      onClick={handleAdminDownloadAll}
+      onClick={handleExport} 
+      translate="yes"
     >
-      Download All User Data
+      
+       <span>{t("download")}</span>
     </button>
   </div>
-)}
+
  <TotalPnLCard
           totalProfit={cTotalProfit}
           totalRevenue={cTotalRevenue}

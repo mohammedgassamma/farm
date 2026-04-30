@@ -1,5 +1,6 @@
 import { BaseService } from "@/server/services/BaseService";
 import { useInfiniteQuery } from "@tanstack/react-query";
+import { UserService } from "@/server/services/user.service"; // ← importer UserService
 
 export interface PaginationResult<T> {
   data: T[];
@@ -12,12 +13,14 @@ export interface UsePaginationOptions<T> {
   queryFn?: (params: {
     pageParam: any;
     queryKey: any[];
+    queryParams?: Record<string, string>; // 👈 AJOUT
   }) => Promise<PaginationResult<T>>;
   pageSize?: number;
   enabled?: boolean;
   staleTime?: number;
   gcTime?: number;
   useDefaultQueryFn?: boolean; // Flag to use default query function
+  queryParams?: Record<string, string>;
 }
 
 const baseService = new BaseService();
@@ -26,16 +29,24 @@ const baseService = new BaseService();
 export const defaultPaginationQueryFunction = async ({
   queryKey,
   pageParam,
+   queryParams, // 👈 AJOUT
 }: {
   queryKey: any[];
-  pageParam: any;
+  pageParam: any; 
+  queryParams?: Record<string, string>; // 👈 AJOUT
+
+  
 }) => {
   const newQueryKey = queryKey[0];
   const pageSize = queryKey[1] || 10; // Get pageSize from queryKey
+  const userService = new UserService(); // ← instanciation ici, en dehors de BaseService
+  const includeUser = newQueryKey.includes("?includeUser=true");
+  const cleanCName = newQueryKey.replace("?includeUser=true", "");
 
   if (newQueryKey.includes("?getAll=true")) {
     const data = await baseService.getAllByCollectionNameWithPagination({
-      cName: newQueryKey.replace("?getAll=true", ""),
+      //cName: newQueryKey.replace("?getAll=true", ""),
+      cName:cleanCName,
       pageSize,
       lastDoc: pageParam,
     });
@@ -47,6 +58,7 @@ export const defaultPaginationQueryFunction = async ({
     cName: newQueryKey,
     pageSize,
     lastDoc: pageParam,
+    userService: includeUser ? userService : undefined,
   });
 
   return data;
@@ -61,15 +73,17 @@ export function usePaginatedFetch<T>({
   staleTime,
   gcTime,
   useDefaultQueryFn = true,
+  queryParams,
 }: UsePaginationOptions<T>) {
   const query = useInfiniteQuery({
     queryKey: [...queryKey, pageSize],
-    queryFn: async ({ pageParam, queryKey: qKey }) => {
+    queryFn: async ({ pageParam, queryKey: qKey, }) => {
       // Use default query function if specified, otherwise use custom queryFn
       if (useDefaultQueryFn) {
         const defaultFetch = await defaultPaginationQueryFunction({
           queryKey: qKey,
           pageParam,
+          queryParams, 
         });
 
         return defaultFetch;
@@ -79,8 +93,9 @@ export function usePaginatedFetch<T>({
         throw new Error("queryFn is required when useDefaultQueryFn is false");
       }
 
-      return await queryFn({ pageParam, queryKey: qKey });
-    },
+      return await queryFn({ pageParam, queryKey: qKey , queryParams, });
+    }, 
+
     initialPageParam: null,
     getNextPageParam: (lastPage) => {
       return lastPage.hasMore ? lastPage.lastDoc : undefined;
@@ -88,6 +103,7 @@ export function usePaginatedFetch<T>({
     enabled,
     staleTime,
     gcTime,
+   
   });
 
   // Flatten all pages into a single array

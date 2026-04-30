@@ -20,7 +20,9 @@ import Link from "next/link";
 import {
   useGetCropsAggregate,
   usePaginatedCrops,
-} from "@/app/apiClient/hooks";
+} from "@/app/apiClient/hooks"; 
+import { API_URLS } from "@/app/apiClient/apiRoute";
+import { usePaginatedFetch } from "@/hooks/usePaginatedFetch";
 import { PATH_URLS } from "@/app/apiClient/apiRoute";
 import { LoadMoreButton } from "@/components/reusables/LoadMoreButton";
 import { useUserCurrency } from "@/hooks/useUserCurrency";
@@ -50,7 +52,9 @@ export const CropsClientsPage = () => {
     hasNextPage,
     fetchNextPage,
     isFetchingNextPage,
-  } = usePaginatedCrops();
+  } = usePaginatedFetch<TCrop>({
+    queryKey: [API_URLS.GET_ALL_CROPS_WITH_USER],
+  });
 
   const handleDeleteConfirmation = (cropId: string) => {
     setConfirmDelete(true);
@@ -78,7 +82,7 @@ export const CropsClientsPage = () => {
   const clearSearch = () => {
     setSearchQuery("");
   };
-
+/*
   const handleExport = () => {
     setIsExporting(true);
     try {
@@ -95,7 +99,7 @@ export const CropsClientsPage = () => {
       setIsExporting(false);
     }
   };
-
+*/
   const filteredCrops = crops.filter(
       (crop) =>
           crop.fieldNumber
@@ -175,18 +179,9 @@ export const CropsClientsPage = () => {
                     )}
                   </div>
               )}
+              
 
-              {/* Bouton Export Excel */}
-              <Button
-                  variant="outline"
-                  size="lg"
-                  onClick={handleExport}
-                  disabled={isExporting || filteredCrops.length === 0}
-                  className="flex items-center gap-2 border-green-600 text-green-600 hover:bg-green-50"
-              >
-                <ArrowDownTrayIcon className="w-5 h-5" />
-                {isSearchVisible ? "" : "Excel"}
-              </Button>
+            
 
               {/* Bouton Ajouter */}
               <div className="grow">

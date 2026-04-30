@@ -1,4 +1,45 @@
-{
+{ 
+  "export": { 
+    "sheetCrops":     "Agriculture",
+  "sheetLivestock": "Elevage",
+  "exportSuccess":  "Export réussi",
+  "exportError":    "Erreur lors de l'export",
+    "email":            "Adresse email",
+    "registrationDate": "Date d'inscription",
+    "country":          "Pays",
+    "department":       "Département",
+    "fieldNumber":      "Numéro de champ",
+    "area":             "Superficie (Ha)",
+    "cropPlanted":      "Culture plantée",
+    "seedCost":         "Coût semences/Ha",
+    "fertilizerCost":   "Coût engrais/Ha",
+    "herbicideCost":    "Coût herbicide/Ha",
+    "laborCost":        "Coût main d'œuvre/Ha",
+    "otherCosts":       "Autres coûts/Ha",
+    "yieldKg":          "Rendement Kg/Ha",
+    "priceKg":          "Prix/Kg",
+    "expenses":         "Dépenses/Champ",
+    "revenues":         "Revenus/Champ",
+    "profit":           "Bénéfice/Champ",
+    "identification":   "Identification",
+    "dateOfBirth":      "Date de naissance",
+    "sex":              "Sexe",
+    "father":           "Père",
+    "mother":           "Mère",
+    "animalCost":       "Coût animal",
+    "feedCost":         "Coût alimentation",
+    "vetCost":          "Coût vétérinaire",
+    "inseminationCost": "Coût insémination",
+    "inseminationDate": "Date insémination",
+    "breedingDate":     "Date saillie",
+    "lastBirthDate":    "Dernier vêlage",
+    "totalMilk":        "Lait total produit",
+    "milkPrice":        "Prix lait/Gallon",
+    "salePrice":        "Prix de vente",
+    "totalCost":        "Coût total",
+    "totalIncome":      "Revenu total",
+    "totalProfit":      "Bénéfice total"
+  },
   "login": {
     "appTitle": "L'Appli de Gestion des Fermes"
   },
@@ -245,7 +286,9 @@
   },
   "dashboardScreen": {
     "main": {
+
       "dashboard": "Tableau de bord",
+      "download":"Télécharger toutes les données utilisateur",
       "statCard": {
         "profit": "Bénéfice Total de la Ferme",
         "totalRevenue": "Revenu Total de la Ferme",
@@ -417,7 +460,9 @@
     "continueWith": "ou Continuer avec...",
     "signInWithGoogle": "Se connecter avec Google",
     "signInWithPhone": "Se Connecter avec un numéro de téléphone",
-    "alreadyHaveAccount": "Vous avez déjà un compte? "
+    "alreadyHaveAccount": "Vous avez déjà un compte? ",
+    "country":"Pays",
+    "department":"Département/Région"
   },
   "installPrompt": {
     "full__title": "Pour installer cette application sur votre iPhone, recherchez et cliquez sur cette icône",

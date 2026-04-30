@@ -1,4 +1,45 @@
 {
+   "export": {
+    "sheetCrops":     "Agriculture",
+  "sheetLivestock": "Livestock",
+  "exportSuccess":  "Export successful",
+  "exportError":    "Export failed",
+    "email":            "Email Address",
+    "registrationDate": "Registration Date",
+    "country":          "Country",
+    "department":       "Department",
+    "fieldNumber":      "Field Number",
+    "area":             "Area (Ha)",
+    "cropPlanted":      "Crop Planted",
+    "seedCost":         "Seed Cost/Ha",
+    "fertilizerCost":   "Fertilizer Cost/Ha",
+    "herbicideCost":    "Herbicide Cost/Ha",
+    "laborCost":        "Labor Cost/Ha",
+    "otherCosts":       "Other Costs/Ha",
+    "yieldKg":          "Yield Kg/Ha",
+    "priceKg":          "Price/Kg",
+    "expenses":         "Expenses/Field",
+    "revenues":         "Revenues/Field",
+    "profit":           "Profit/Field",
+    "identification":   "Identification",
+    "dateOfBirth":      "Date of Birth",
+    "sex":              "Sex",
+    "father":           "Father",
+    "mother":           "Mother",
+    "animalCost":       "Animal Cost",
+    "feedCost":         "Feed Cost",
+    "vetCost":          "Vet Cost",
+    "inseminationCost": "Insemination Cost",
+    "inseminationDate": "Insemination Date",
+    "breedingDate":     "Breeding Date",
+    "lastBirthDate":    "Last Birth Date",
+    "totalMilk":        "Total Milk Produced",
+    "milkPrice":        "Milk Price/Gallon",
+    "salePrice":        "Sale Price",
+    "totalCost":        "Total Cost",
+    "totalIncome":      "Total Income",
+    "totalProfit":      "Total Profit"
+  },
   "login": {
     "appTitle": "The Farm Management App"
   },
@@ -247,6 +288,7 @@
   "dashboardScreen": {
     "main": {
       "dashboard": "Dashboard",
+      "download":"Download All User Data",
       "statCard": {
         "profit": "Total Farm Profit",
         "totalRevenue": "Total Farm Revenue",
@@ -422,7 +464,9 @@
     "signInWithGoogle": "Sign in with Google",
     "signInWithPhone": "Sign in with Phone",
     "continueWith": "Or continue with",
-    "alreadyHaveAccount": "Already have an account? "
+    "alreadyHaveAccount": "Already have an account? ",
+    "country":"Country",
+    "department":"Department/Region"
   },
   "installPrompt": {
     "full__title": "To install this app on your iPhone, Search and click on this icon",

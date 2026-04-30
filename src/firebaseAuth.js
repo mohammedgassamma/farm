@@ -7,9 +7,7 @@ import {
 } from "firebase/auth";
 import nookies from "nookies";
 
-import { auth } from "./firebaseConfig";
-
-const authFirebase = auth;
+import { auth as authFirebase } from "./firebaseConfig";
 
 export const setupRecaptcha = () => {
   if (!window.recaptchaVerifier) {

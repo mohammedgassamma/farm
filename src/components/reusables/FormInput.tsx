@@ -99,7 +99,7 @@ export const MFormInput = ({
                             },
                           }
                         : {})}
-                      value={isFileInput ? "" : readOnly ? value : field.value}
+                      value={isFileInput ? "" : readOnly ? value : (field.value ?? "")}
                       readOnly={readOnly}
                       aria-invalid={fieldState.invalid}
                       autoComplete="off"
@@ -121,7 +121,7 @@ export const MFormInput = ({
                           },
                         }
                       : {})}
-                    value={isFileInput ? "" : readOnly ? value : field.value}
+                    value={isFileInput ? "" : readOnly ? value : (field.value ?? "")}
                     readOnly={readOnly}
                     aria-invalid={fieldState.invalid}
                     autoComplete="off"

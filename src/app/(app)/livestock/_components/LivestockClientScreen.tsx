@@ -28,7 +28,8 @@ import {
   exportToExcel,
   formatLivestockForExport,
 } from "@/lib/useExportExcel";
-
+import{API_URLS} from "@/app/apiClient/apiRoute";
+import { usePaginatedFetch } from "@/hooks/usePaginatedFetch";
 export const LivestockClientScreen = () => {
   const t = useTranslations("animalScreen.main");
   const [confirmDelete, setConfirmDelete] = useState<boolean>(false);
@@ -44,7 +45,11 @@ export const LivestockClientScreen = () => {
     hasNextPage,
     fetchNextPage,
     isFetchingNextPage,
-  } = useGetPaginatedLivestocks();
+  } = usePaginatedFetch<TLivestock>({
+      queryKey: [API_URLS.GET_ALL_LIVESTOCK_WITH_USER],
+    });
+  
+  
 
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [isSearchVisible, setIsSearchVisible] = useState<boolean>(false);
@@ -85,7 +90,7 @@ export const LivestockClientScreen = () => {
       animal.identification.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  const handleExport = () => {
+ /* const handleExport = () => {
     setIsExporting(true);
     try {
       const dataToExport = formatLivestockForExport(filteredAnimals);
@@ -100,7 +105,7 @@ export const LivestockClientScreen = () => {
     } finally {
       setIsExporting(false);
     }
-  };
+  }; */
 
   return (
       <>
@@ -174,17 +179,7 @@ export const LivestockClientScreen = () => {
                 </div>
             )}
 
-            {/* Bouton Export Excel */}
-            <Button
-                variant="outline"
-                size="lg"
-                onClick={handleExport}
-                disabled={isExporting || filteredAnimals.length === 0}
-                className="flex items-center gap-2 border-green-600 text-green-600 hover:bg-green-50"
-            >
-              <ArrowDownTrayIcon className="w-5 h-5" />
-              {isSearchVisible ? "" : "Excel"}
-            </Button>
+           
 
             {/* Bouton Ajouter */}
             <div className="grow">

@@ -11,21 +11,21 @@ export default function RootLayout({
 }>) {
   const { isAdmin } = useAuth();
 
-  // if (!isAdmin) {
-  //   return (
-  //     <AppLayout
-  //       hasPartialLogo
-  //       backTo={PATH_URLS.HOME_SCREEN}
-  //       hasLanguageSwitcher={false}
-  //       hasBottomBack
-  //       className="p-6"
-  //     >
-  //       <h2 className="text-center text-lg font-bold">
-  //         Access Denied. Admins Only.
-  //       </h2>
-  //     </AppLayout>
-  //   );
-  // }
+  if (!isAdmin) {
+     return (
+      <AppLayout
+         hasPartialLogo
+         backTo={PATH_URLS.HOME_SCREEN}
+         hasLanguageSwitcher={false}
+        hasBottomBack
+         className="p-6"
+       >
+         <h2 className="text-center text-lg font-bold">
+           Access Denied. Admins Only.
+        </h2>
+      </AppLayout>
+     );
+   }
 
   return (
     <div

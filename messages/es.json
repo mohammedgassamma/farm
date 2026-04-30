@@ -1,4 +1,45 @@
-{
+{ 
+  "export": {
+    "sheetCrops":     "Agricultura",
+  "sheetLivestock": "Ganadería",
+  "exportSuccess":  "Exportación exitosa",
+  "exportError":    "Error en la exportación",
+    "email":            "Correo electrónico",
+    "registrationDate": "Fecha de registro",
+    "country":          "País",
+    "department":       "Departamento",
+    "fieldNumber":      "Número de campo",
+    "area":             "Área (Ha)",
+    "cropPlanted":      "Cultivo plantado",
+    "seedCost":         "Costo semilla/Ha",
+    "fertilizerCost":   "Costo fertilizante/Ha",
+    "herbicideCost":    "Costo herbicida/Ha",
+    "laborCost":        "Costo mano de obra/Ha",
+    "otherCosts":       "Otros costos/Ha",
+    "yieldKg":          "Rendimiento Kg/Ha",
+    "priceKg":          "Precio/Kg",
+    "expenses":         "Gastos/Campo",
+    "revenues":         "Ingresos/Campo",
+    "profit":           "Beneficio/Campo",
+    "identification":   "Identificación",
+    "dateOfBirth":      "Fecha de nacimiento",
+    "sex":              "Sexo",
+    "father":           "Padre",
+    "mother":           "Madre",
+    "animalCost":       "Costo animal",
+    "feedCost":         "Costo alimentación",
+    "vetCost":          "Costo veterinario",
+    "inseminationCost": "Costo inseminación",
+    "inseminationDate": "Fecha inseminación",
+    "breedingDate":     "Fecha monta",
+    "lastBirthDate":    "Último parto",
+    "totalMilk":        "Leche total producida",
+    "milkPrice":        "Precio leche/Galón",
+    "salePrice":        "Precio de venta",
+    "totalCost":        "Costo total",
+    "totalIncome":      "Ingreso total",
+    "totalProfit":      "Beneficio total"
+  },
   "login": {
     "appTitle": "La Aplicación Agrícola Universal"
   },
@@ -247,6 +288,7 @@
   "dashboardScreen": {
     "main": {
       "dashboard": "Panel de control",
+      "download":"Descargar todos los datos de usuario",
       "statCard": {
         "profit": "Ganancia total de la granja",
         "totalRevenue": "Ingresos totales de la granja",
@@ -422,7 +464,9 @@
     "signInWithGoogle": "Iniciar sesión con Google",
     "signInWithPhone": "Iniciar sesión con teléfono",
     "continueWith": "O continuar con",
-    "alreadyHaveAccount": "¿Ya tiene una cuenta? "
+    "alreadyHaveAccount": "¿Ya tiene una cuenta? ",
+    "country":"País",
+    "department":"Departamento/Región"
   },
   "installPrompt": {
     "full__title": "Para instalar esta aplicación en su iPhone, busque y haga clic en este icono",
