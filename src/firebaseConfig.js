@@ -51,4 +51,7 @@ if (
   );
 }
 
-export { db, storage, auth, app };
+const firebaseApp = app;
+const firebaseProvider = firebase;
+
+export { db, storage, auth, app, firebaseApp, firebaseProvider };
