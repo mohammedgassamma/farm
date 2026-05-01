@@ -102,7 +102,7 @@ export default function AddOrEditCrops({
         revenuesPerField,
         profits,
         email: user?.email,
-        userId: user?.uid,
+        userId: user?.uid ?? "",
         year: new Date().getFullYear(),
         lastEdited: Date.now(),
       };

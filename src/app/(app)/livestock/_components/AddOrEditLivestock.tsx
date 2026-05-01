@@ -119,7 +119,7 @@ export default function AddOrEditLivestock({
         totalIncome,
         totalProfit,
         email: user?.email,
-        userId: user?.uid,
+        userId: user?.uid ?? "",
         year: new Date().getFullYear(),
         lastEdited: Date.now(),
       };
